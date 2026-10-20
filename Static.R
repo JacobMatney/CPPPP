@@ -202,7 +202,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f) {
       Base_matrix[i, 3] = 1/Slope
       
       #CrCP Calculation
-      Base_matrix[i, 2] = mean(PulledData$FilteredMAP) - (Base_matrix[i,3] * mean(PulledData$FilteredLMCAv))
+      Base_matrix[i, 2] = mean(CPP) - (Base_matrix[i,3] * mean(PulledData$FilteredLMCAv))
       
       #Mean MCAv
       Base_matrix[i, 4] = mean(PulledData$FilteredLMCAv)
