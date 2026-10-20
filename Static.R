@@ -210,14 +210,15 @@ Static_Func = function(x,y,z,a,b,d,j, m, f) {
       #Mean MAP
       Base_matrix[i, 5] = mean(PulledData$FilteredMAP)
       
-      #"Check" Calculation
-      Base_matrix[i, 6] = (Base_matrix[i,5] - Base_matrix[i,2]) / Base_matrix[i,3]
       
       #CPI Calculation
       Base_matrix[i, 8] = (Sys_velocity - Diastolic_Velocity) / Mean_Velocity
       
       #Mean CPP
       Base_matrix[i, 9] = mean(CPP)
+      
+        #"Check" Calculation
+      Base_matrix[i, 6] = (Base_matrix[i,9] - Base_matrix[i,2]) / Base_matrix[i,3]
       
       #CVCi Calculation
       Base_matrix[i, 10] = mean(PulledData$FilteredLMCAv) / mean(CPP)
