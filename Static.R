@@ -175,20 +175,21 @@ Static_Func = function(x,y,z,a,b,d,j, m, f) {
       n = length(PulledData$Sample)
       Time_Seconds = seq(0, CardiacCycleLength, length.out = n)
       Time_Periods = seq(0, 2 * pi, length.out = n)
+
+      #Calculate estimated CPP. 
+      CPP = (PulledData$FilteredMAP - (0.7355 * d))
+
       
       Mean_Velocity = mean(PulledData$FilteredLMCAv)
-      Mean_MAP = mean(PulledData$FilteredMAP)
+      Mean_MAP = mean(CPP)
       Mean_PET1 = mean(PulledData$PETCO2)
       
       Sys_velocity = max(PulledData$FilteredLMCAv)
-      Sys_MAP = max(PulledData$FilteredMAP)
+      Sys_MAP = max(CPP)
       
       Diastolic_Velocity = min(PulledData$FilteredLMCAv)
-      Diastolic_MAP = min(PulledData$FilteredMAP)
-      
-      
-      #Calculate estimated CPP. 
-      CPP = (PulledData$FilteredMAP - (0.7355 * d))
+      Diastolic_MAP = min(CPP)
+     
       
       
       #Slope determined through 2 point mean methods. 
