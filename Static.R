@@ -317,24 +317,23 @@ Static_Func = function(x,y,z,a,b,d,j, m, f) {
       Time_Seconds = seq(0, CardiacCycleLength, length.out = n)
       Time_Periods = seq(0, 2 * pi, length.out = n)
       
+       #CPP Calculation
+      CPP3 = (PulledData3$FilteredMAP - (0.7355 * d))
       
       #Calculate Mean MAP and V
       Mean_Velocity = mean(PulledData3$FilteredLMCAv)
-      Mean_MAP = mean(PulledData3$FilteredMAP)
+      Mean_MAP = mean(CPP3)
       Mean_PET2 = mean(PulledData3$PETCO2)
       
       #Systolic MAP and V
       Sys_velocity = max(PulledData3$FilteredLMCAv)
-      Sys_MAP = max(PulledData3$FilteredMAP)
+      Sys_MAP = max(CPP3)
       
       
       #Diastolic MAP and V
       Diastolic_Velocity = min(PulledData3$FilteredLMCAv)
-      Diastolic_MAP = min(PulledData3$FilteredMAP)
+      Diastolic_MAP = min(CPP3)
       
-      
-      #CPP Calculation
-      CPP3 = (PulledData3$FilteredMAP - (0.7355 * d))
       
       #slope determined by 2-point mean method
       Slope = (Mean_Velocity - Diastolic_Velocity) / (Mean_MAP - Diastolic_MAP)
@@ -351,7 +350,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f) {
       Stress_matrix[i, 3] = 1/Slope
       
       #CrCP
-      Stress_matrix[i, 2] = mean(PulledData3$FilteredMAP) - (Stress_matrix[i,3] * mean(PulledData3$FilteredLMCAv))
+      Stress_matrix[i, 2] = mean(CPP3) - (Stress_matrix[i,3] * mean(PulledData3$FilteredLMCAv))
       
       #Mean MCAv
       Stress_matrix[i, 4] = mean(PulledData3$FilteredLMCAv)
@@ -359,14 +358,16 @@ Static_Func = function(x,y,z,a,b,d,j, m, f) {
       #Mean MAP
       Stress_matrix[i, 5] = mean(PulledData3$FilteredMAP)
       
+        #Mean CPP
+      Stress_matrix[i, 9] = mean(CPP3)
+      
       #Check Calculation
-      Stress_matrix[i, 6] = (Stress_matrix[i,5] - Stress_matrix[i,2]) / Stress_matrix[i,3]
+      Stress_matrix[i, 6] = (Stress_matrix[i,9] - Stress_matrix[i,2]) / Stress_matrix[i,3]
       
       #CPI Calculation
       Stress_matrix[i, 8] = (Sys_velocity - Diastolic_Velocity) / Mean_Velocity
       
-      #Mean CPP
-      Stress_matrix[i, 9] = mean(CPP3)
+    
       
       #CVCi Calculation
       Stress_matrix[i, 10] = mean(PulledData3$FilteredLMCAv) / mean(CPP3)
