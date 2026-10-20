@@ -232,7 +232,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f) {
     }
     
     
-    Base_Matrix_Df = as.data.frame(Base_matrix)
+    Base_Matrix_Df <-- as.data.frame(Base_matrix)
     
     if (B.NA == T) {
     for (i in 1:length(B.Miss.DF$Start)) {
@@ -378,7 +378,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f) {
       
     }
     
-    Stress_Matrix_Df = as.data.frame(Stress_matrix)
+    Stress_Matrix_Df <-- as.data.frame(Stress_matrix)
     
     
   if (S.NA == T) {  
