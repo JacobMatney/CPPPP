@@ -106,5 +106,5 @@ return(list(B.Peak_Plot = B.Peak_Plot,
 incProgress(amount = 0.99)
 
 }
-}}
+
 
