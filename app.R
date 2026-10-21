@@ -57,7 +57,7 @@ ui = page_sidebar(
                         choices = list("Condition A" = 1, "Condition B" = 2), selected = 1) |> 
              tooltip("Select which condition you wish to analyze; CondA = A, CondB = B"),
 
-            radioButtons("gate", label = tags$u("Select Gate Condition:"), 
+            radioButtons("condition", label = tags$u("Select Gate Condition:"), 
                         choices = list("ECG" = 1, "CBFv" = 2), selected = 1) |> 
              tooltip("Select which condition you wish to use for cardiac cycle gating),
  
