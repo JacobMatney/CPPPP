@@ -67,12 +67,12 @@ Dataset_Stim$Time = 1:length(Dataset_Stim$CBFv)
 
 Dataset_Base$InverseCBFv = -Dataset_Base$CBFv
 Dataset_Stim$InverseCBFv = -Dataset_Stim$CBFv
-
+print("Pre")
 
 B.Peaks = data.frame(pracma::findpeaks(Dataset_Base$InverseCBFv, npeaks = Inf, minpeakdistance = (0.5 * Fq)))
 S.Peaks = data.frame(pracma::findpeaks(Dataset_Stim$InverseCBFv, npeaks = Inf, minpeakdistance = (0.5 * Fq)))
 
-print("Pre")
+
 
 Dataset_Base$Beat_Num[B.Peaks$X2] = "beat"
 Dataset_Stim$Beat_Num[S.Peaks$X2] = "beat"
