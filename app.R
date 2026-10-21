@@ -59,7 +59,7 @@ ui = page_sidebar(
 
           radioButtons("Gating", label = tags$u("Select Gate:"), 
                         choices = list("ECG" = 1, "CBFv" = 2), selected = 1) |> 
-             tooltip("Select which data you wish to use for cardiac cycle"),
+             tooltip("Select which data you wish to use for cardiac cycle")),
            
            numericInput("Fs", "Sample Frequency (Hz)", value= 1000) |>
              tooltip("Input the sampling frequency of your raw data (Hz)")),
