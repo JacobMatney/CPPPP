@@ -1,6 +1,7 @@
 Vel.Gate = function (x, y, z) {
   
 withProgress(message = "Beat detection in progress, please wait...", {  
+  
 packages = c("tidyverse",
              "ggplot2",
              "lme4",
@@ -103,9 +104,8 @@ return(list(B.Peak_Plot = B.Peak_Plot,
             Baseline.Data = Dataset_Base, 
             Stim.Data = Dataset_Stim)
 )
-
 incProgress(amount = 0.99)
-
+  }
 }
 
 
