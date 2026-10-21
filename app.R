@@ -295,15 +295,14 @@ server = function(input, output, session) {
     
   })
 
-  if (input$gate == 1){
+  
   output$Plot = renderPlotly({
     req(B2B_1)
-    B2B_1()$Base.Plot
-  })} else {
-     output$Plot = renderPlotly({
-    req(B2B_1)
-    B2B_1()$B.Peak_Plot
-    })}
+
+    if (input$gate == 1){
+    B2B_1()$Base.Plot } else {
+      B2B_1()$B.Peak_Plot
+    })
   
   
   output$Plot2 = renderPlotly({
