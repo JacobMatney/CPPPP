@@ -57,6 +57,8 @@ if(y == 2){
   
 }
 
+incProgress(amount = 0.25)
+  
 Dataset_Base$Time = 1:length(Dataset_Base$CBFv)
 Dataset_Stim$Time = 1:length(Dataset_Stim$CBFv)
 
@@ -73,6 +75,7 @@ S.Peaks = data.frame(findpeaks(Dataset_Stim$InverseCBFv, npeaks = Inf, minpeakdi
 Dataset_Base$Beat_Num[B.Peaks$X2] = "beat"
 Dataset_Stim$Beat_Num[S.Peaks$X2] = "beat"
 
+incProgress(amount = 0.50)
 
 B.Peak_Plot = ggplot(Dataset_Base, aes(x = Time, y = CBFv)) + 
   geom_line() +
@@ -83,7 +86,8 @@ B.Peak_Plot = ggplot(Dataset_Base, aes(x = Time, y = CBFv)) +
         strip.background = element_blank(), 
         legend.position = "none")
 
-
+incProgress(amount = 0.75)
+  
 S.Peak_Plot = ggplot(Dataset_Stim, aes(x = Time, y = CBFv)) + 
   geom_line() +
   geom_point(data = S.Peaks, aes(y = Dataset_Stim$CBFv[X2], x = X2), color = "red") +
@@ -99,7 +103,7 @@ return(list(B.Peak_Plot = B.Peak_Plot,
             Stim.Data = Dataset_Stim)
 )
 
-
+incProgress(amount = 0.99)
 
 }
 }
