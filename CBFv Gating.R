@@ -67,8 +67,8 @@ S.Peaks = data.frame(findpeaks(Dataset_Stim$InverseCBFv, npeaks = Inf, minpeakdi
 
 
 
-Dataset_Base$Beat_Num[Peaks$X2] = "beat"
-Dataset_Stim$Beat_Num[Peaks$X2] = "beat"
+Dataset_Base$Beat_Num[B.Peaks$X2] = "beat"
+Dataset_Stim$Beat_Num[S.Peaks$X2] = "beat"
 
 
 B.Peak_Plot = ggplot(Dataset_Base, aes(x = Time, y = CBFv)) + 
