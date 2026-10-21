@@ -57,10 +57,10 @@ ui = page_sidebar(
                         choices = list("Condition A" = 1, "Condition B" = 2), selected = 1) |> 
              tooltip("Select which condition you wish to analyze; CondA = A, CondB = B"),
 
-          radioButtons("gating", label = tags$u("Select Gate:"), 
-                        choices = list("ECG" = 1, "CBFv" = 2), selected = 1) |> 
-             tooltip("Select which data you wish to use for cardiac cycle gating"),
-           
+            radioButtons("condition", label = tags$u("Select Condition:"), 
+                        choices = list("Condition A" = 1, "Condition B" = 2), selected = 1) |> 
+             tooltip("Select which condition you wish to analyze; CondA = A, CondB = B"),
+ 
            numericInput("Fs", "Sample Frequency (Hz)", value= 1000) |>
              tooltip("Input the sampling frequency of your raw data (Hz)")),
       
