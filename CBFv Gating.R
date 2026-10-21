@@ -72,11 +72,11 @@ Dataset_Stim$InverseCBFv = -Dataset_Stim$CBFv
 B.Peaks = data.frame(pracma::findpeaks(Dataset_Base$InverseCBFv, npeaks = Inf, minpeakdistance = (0.5 * Fq)))
 S.Peaks = data.frame(pracma::findpeaks(Dataset_Stim$InverseCBFv, npeaks = Inf, minpeakdistance = (0.5 * Fq)))
 
-
+print("Pre")
 
 Dataset_Base$Beat_Num[B.Peaks$X2] = "beat"
 Dataset_Stim$Beat_Num[S.Peaks$X2] = "beat"
-
+print("Post")
 
 
 B.Peak_Plot = ggplot(Dataset_Base, aes(x = Time, y = CBFv)) + 
