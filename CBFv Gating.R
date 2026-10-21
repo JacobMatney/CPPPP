@@ -31,7 +31,7 @@ package.check = lapply(
 
 
  
-incProgress(amount = 0.25)
+
 Fz = z
 
 
@@ -59,7 +59,7 @@ if(y == 2){
   
 }
 
-incProgress(amount = 0.25)
+
   
 Dataset_Base$Time = 1:length(Dataset_Base$CBFv)
 Dataset_Stim$Time = 1:length(Dataset_Stim$CBFv)
@@ -77,7 +77,7 @@ S.Peaks = data.frame(findpeaks(Dataset_Stim$InverseCBFv, npeaks = Inf, minpeakdi
 Dataset_Base$Beat_Num[B.Peaks$X2] = "beat"
 Dataset_Stim$Beat_Num[S.Peaks$X2] = "beat"
 
-incProgress(amount = 0.25)
+
 
 B.Peak_Plot = ggplot(Dataset_Base, aes(x = Time, y = CBFv)) + 
   geom_line() +
@@ -88,7 +88,7 @@ B.Peak_Plot = ggplot(Dataset_Base, aes(x = Time, y = CBFv)) +
         strip.background = element_blank(), 
         legend.position = "none")
 
-incProgress(amount = 0.24)
+
   
 S.Peak_Plot = ggplot(Dataset_Stim, aes(x = Time, y = CBFv)) + 
   geom_line() +
@@ -103,11 +103,11 @@ return(list(B.Peak_Plot = B.Peak_Plot,
             S.Peak_Plot = S.Peak_Plot, 
             Baseline.Data = Dataset_Base, 
             Stim.Data = Dataset_Stim)
-)
-
+      )
   
 }
-}
+             }
+        
 
 
 
