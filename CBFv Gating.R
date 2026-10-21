@@ -100,6 +100,13 @@ S.Peak_Plot = ggplot(Dataset_Stim, aes(x = Time, y = CBFv)) +
         legend.position = "none")
   
 incProgress(amount = 0.24)
+
+
+B.Peak_Plot1 = ggplotly(B.Peak_Plot) %>%
+  rangeslider(start = Dataset_Base$Time[1], end = Dataset_Base$Time[50000])
+  
+S.Peak_Plot1 = ggplotly(S.Peak_Plot) %>%
+  rangeslider(start = Dataset_Stim$Time[1], end = Dataset_Stim$Time[50000])
   
 return(list(B.Peak_Plot = B.Peak_Plot, 
             S.Peak_Plot = S.Peak_Plot, 
