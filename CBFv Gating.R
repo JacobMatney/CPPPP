@@ -108,8 +108,8 @@ B.Peak_Plot1 = ggplotly(B.Peak_Plot) %>%
 S.Peak_Plot1 = ggplotly(S.Peak_Plot) %>%
   rangeslider(start = Dataset_Stim$Time[1], end = Dataset_Stim$Time[50000])
   
-return(list(B.Peak_Plot = B.Peak_Plot, 
-            S.Peak_Plot = S.Peak_Plot, 
+return(list(B.Peak_Plot = B.Peak_Plot1, 
+            S.Peak_Plot = S.Peak_Plot1, 
             Baseline.Data = Dataset_Base, 
             Stim.Data = Dataset_Stim)
       )
