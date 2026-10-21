@@ -105,7 +105,7 @@ return(list(B.Peak_Plot = B.Peak_Plot,
             Stim.Data = Dataset_Stim)
 )
 incProgress(amount = 0.99)
-  }
+  
 }
 
 
