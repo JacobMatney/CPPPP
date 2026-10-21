@@ -307,8 +307,11 @@ server = function(input, output, session) {
   
   output$Plot2 = renderPlotly({
     req(B2B_1)
-    B2B_1()$Stim.Plot
-  }) 
+    if (input$gate == 1){
+    B2B_1()$Stim.Plot 
+    } else {
+      B2B_1()$S.Peak_Plot
+    }})
   
   
   output$Abs_Check = renderPlotly({
