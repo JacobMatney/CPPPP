@@ -1,5 +1,6 @@
 Vel.Gate = function (x, y, z) {
-
+  
+withProgress(message = "Beat detection in progress, please wait...", {  
 packages = c("tidyverse",
              "ggplot2",
              "lme4",
@@ -28,7 +29,7 @@ package.check = lapply(
 
 
 
-withProgress(message = "Beat detection in progress, please wait...", {   
+ 
 
 Fz = z
 
