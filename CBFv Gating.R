@@ -88,7 +88,7 @@ B.Peak_Plot = ggplot(Dataset_Base, aes(x = Time, y = CBFv)) +
         strip.background = element_blank(), 
         legend.position = "none")
 
-
+incProgress(amount = 0.24)
   
 S.Peak_Plot = ggplot(Dataset_Stim, aes(x = Time, y = CBFv)) + 
   geom_line() +
@@ -104,7 +104,7 @@ return(list(B.Peak_Plot = B.Peak_Plot,
             Baseline.Data = Dataset_Base, 
             Stim.Data = Dataset_Stim)
 )
-incProgress(amount = 0.24)
+
   
 }
 }
