@@ -304,7 +304,6 @@ server = function(input, output, session) {
     req(B2B_1)
     B2B_1()$B.Peak_Plot
     })}
-                             }) 
   
   
   output$Plot2 = renderPlotly({
