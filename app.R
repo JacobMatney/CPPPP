@@ -3,6 +3,7 @@ options(shiny.maxRequestSize = 30*1024^2, scipen = 999, shiny.launch.browser = .
 
 source("Static.R")
 source("R-R Detection.R")
+source("CBFv Gating.R)
 
 
 packages = c(
@@ -55,6 +56,10 @@ ui = page_sidebar(
            radioButtons("condition", label = tags$u("Select Condition:"), 
                         choices = list("Condition A" = 1, "Condition B" = 2), selected = 1) |> 
              tooltip("Select which condition you wish to analyze; CondA = A, CondB = B"),
+
+          radioButtons("Gating", label = tags$u("Select Gate:"), 
+                        choices = list("ECG" = 1, "CBFv" = 2), selected = 1) |> 
+             tooltip("Select which data you wish to use for cardiac cycle"),
            
            numericInput("Fs", "Sample Frequency (Hz)", value= 1000) |>
              tooltip("Input the sampling frequency of your raw data (Hz)")),
@@ -269,7 +274,7 @@ server = function(input, output, session) {
   B2B_1 = reactive({
     
     req(input$file$datapath, input$condition, input$Fs)
-    
+
     R_Detect(input$file$datapath, input$condition, input$Fs)
     
   })
