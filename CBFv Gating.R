@@ -69,8 +69,8 @@ Dataset_Base$InverseCBFv = -Dataset_Base$CBFv
 Dataset_Stim$InverseCBFv = -Dataset_Stim$CBFv
 
 
-B.Peaks = data.frame(findpeaks(Dataset_Base$InverseCBFv, npeaks = Inf, minpeakdistance = (0.5 * Fq)))
-S.Peaks = data.frame(findpeaks(Dataset_Stim$InverseCBFv, npeaks = Inf, minpeakdistance = (0.5 * Fq)))
+B.Peaks = data.frame(pracma::findpeaks(Dataset_Base$InverseCBFv, npeaks = Inf, minpeakdistance = (0.5 * Fq)))
+S.Peaks = data.frame(pracma::findpeaks(Dataset_Stim$InverseCBFv, npeaks = Inf, minpeakdistance = (0.5 * Fq)))
 
 
 
@@ -98,7 +98,9 @@ S.Peak_Plot = ggplot(Dataset_Stim, aes(x = Time, y = CBFv)) +
         axis.line = element_line(color = "black"),
         strip.background = element_blank(), 
         legend.position = "none")
+  
 incProgress(amount = 0.24)
+  
 return(list(B.Peak_Plot = B.Peak_Plot, 
             S.Peak_Plot = S.Peak_Plot, 
             Baseline.Data = Dataset_Base, 
