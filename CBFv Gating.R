@@ -27,6 +27,9 @@ package.check = lapply(
 )
 
 
+
+withProgress(message = "Beat detection in progress, please wait...", {   
+
 Fz = z
 
 
@@ -98,5 +101,6 @@ return(list(B.Peak_Plot = B.Peak_Plot,
 
 
 
+}
 }
 
