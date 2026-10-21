@@ -29,7 +29,7 @@ package.check = lapply(
 )
 
 
-
+incProgress(amount = 0.25)
  
 
 Fz = z
@@ -59,7 +59,7 @@ if(y == 2){
   
 }
 
-
+incProgress(amount = 0.25)
   
 Dataset_Base$Time = 1:length(Dataset_Base$CBFv)
 Dataset_Stim$Time = 1:length(Dataset_Stim$CBFv)
@@ -88,7 +88,7 @@ B.Peak_Plot = ggplot(Dataset_Base, aes(x = Time, y = CBFv)) +
         strip.background = element_blank(), 
         legend.position = "none")
 
-
+incProgress(amount = 0.25)
   
 S.Peak_Plot = ggplot(Dataset_Stim, aes(x = Time, y = CBFv)) + 
   geom_line() +
@@ -98,11 +98,12 @@ S.Peak_Plot = ggplot(Dataset_Stim, aes(x = Time, y = CBFv)) +
         axis.line = element_line(color = "black"),
         strip.background = element_blank(), 
         legend.position = "none")
-
+incProgress(amount = 0.24)
 return(list(B.Peak_Plot = B.Peak_Plot, 
             S.Peak_Plot = S.Peak_Plot, 
             Baseline.Data = Dataset_Base, 
             Stim.Data = Dataset_Stim)
       )
-  
-}       
+  incProgress(amount = 0.01)
+})
+}    
