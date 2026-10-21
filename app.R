@@ -273,15 +273,15 @@ server = function(input, output, session) {
   
   B2B_1 = reactive({
     
-    req(input$file$datapath, input$condition, input$Fs)
+    req(input$file$datapath, input$condition, input$Fs, input$gate)
 
     if (input$gate == 1) {
     R_Detect(input$file$datapath, input$condition, input$Fs)
     }
 
-    if (input$gate == 2) {
-    Vel.Gate(input$file$datapath, input$condition, input$Fs)
-    }
+    #if (input$gate == 2) {
+    #Vel.Gate(input$file$datapath, input$condition, input$Fs)
+    #}
     
     
   })
