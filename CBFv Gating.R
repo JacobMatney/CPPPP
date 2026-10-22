@@ -33,7 +33,8 @@ incProgress(amount = 0.25)
  
 
 Fz = z
-
+Nyq = z / 2
+BW_Cutoff = 20 / Nyq
 
 if(y == 1){
   Dataset_Base = read_excel(x, 
@@ -64,9 +65,11 @@ incProgress(amount = 0.25)
 Dataset_Base$Time = 1:length(Dataset_Base$CBFv)
 Dataset_Stim$Time = 1:length(Dataset_Stim$CBFv)
 
-
-Dataset_Base$InverseCBFv = -Dataset_Base$CBFv
-Dataset_Stim$InverseCBFv = -Dataset_Stim$CBFv
+Dataset_Base$BW_Filt = bw_filter(Dataset_Base$CBFv, n = 8, W = BW_Cutoff, zero_lag = TRUE)
+Dataset_Stim$BW_Filt = bw_filter(Dataset_Stim$CBFv, n = 8, W = BW_Cutoff, zero_lag = TRUE)
+  
+Dataset_Base$InverseCBFv = -Dataset_Base$BW_Filt
+Dataset_Stim$InverseCBFv = -Dataset_Stim$BW_Filt
 print("Pre")
 
 B.Peaks = data.frame(pracma::findpeaks(Dataset_Base$InverseCBFv, npeaks = Inf, minpeakdistance = (0.5 * Fq)))
