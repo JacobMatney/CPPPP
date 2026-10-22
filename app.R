@@ -277,7 +277,14 @@ server = function(input, output, session) {
     stopApp()
   })
   
-  
+  observeEvent(input$HtCorrect > 0, {
+    output$HtConst = renderUI({
+      radioButtons("HtConst", label = tags$u("Select Constant:"), 
+                        choices = list("0.7355" = 1, "0.76" = 2), selected = 1) |> 
+             tooltip("Select which condition you wish to analyze; CondA = A, CondB = B")
+      })
+    })
+
   B2B_1 = eventReactive(input$runit, {
     
     req(input$file$datapath, input$condition, input$Fs, input$gate)
