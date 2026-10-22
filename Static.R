@@ -720,6 +720,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     incProgress(amount = 0.24)
     #---- Stimulus Individual Plots ----   
     Stim_MCAv_Plot = ggplot(StressResampled, aes(x = Time, y = MCAv)) + 
+      geom_rect(xmin = (max(StressResampled$Time) - z), xmax = max(StressResampled$Time), ymin= min(StressResampled$MCAv), ymax = max(StressResampled$MCAv), fill = "grey90") +  
       geom_line(color = "black")+
       labs(y = "CBFv (cm/s)", x = "Time (s)")+
       theme(axis.title = element_text(face = "bold"), 
@@ -727,6 +728,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
             axis.line = element_line(color = "black"),
             strip.background = element_blank())
     Stim_PETCO2_Plot = ggplot(StressResampled, aes(x = Time, y = PETCO2)) + 
+    geom_rect(xmin = (max(StressResampled$Time) - z), xmax = max(StressResampled$Time), ymin= min(StressResampled$PETCO2), ymax = max(StressResampled$PETCO2), fill = "grey90") +  
       geom_line(color = "black")+
       labs(y = "PETCO2 (mmHg)", x = "Time (s)")+
       theme(axis.title = element_text(face = "bold"), 
@@ -734,6 +736,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
             axis.line = element_line(color = "black"),
             strip.background = element_blank())
     Stim_CrCP_Plot = ggplot(StressResampled, aes(x = Time, y = CrCP))+
+    geom_rect(xmin = (max(StressResampled$Time) - z), xmax = max(StressResampled$Time), ymin= min(StressResampled$CrCP), ymax = max(StressResampled$CrCP), fill = "grey90") +  
       geom_line(color = "deepskyblue")+
       labs(y = "CrCP (mmHg)", x = "Time (s)")+
       theme(axis.title = element_text(face = "bold"), 
@@ -741,6 +744,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
             axis.line = element_line(color = "black"),
             strip.background = element_blank())
     Stim_RAP_Plot = ggplot(StressResampled, aes(x = Time, y = RAP))+
+    geom_rect(xmin = (max(StressResampled$Time) - z), xmax = max(StressResampled$Time), ymin= min(StressResampled$RAP), ymax = max(StressResampled$RAP), fill = "grey90") +  
       geom_line(color = "red")+
       labs(y = "RAP (mmHg·s/cm)", x = "Time (s)")+
       theme(axis.title = element_text(face = "bold"), 
@@ -748,6 +752,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
             axis.line = element_line(color = "black"),
             strip.background = element_blank())
     Stim_MAP_Plot = ggplot(StressResampled, aes(x = Time, y = MAP))+
+    geom_rect(xmin = (max(StressResampled$Time) - z), xmax = max(StressResampled$Time), ymin= min(StressResampled$MAP), ymax = max(StressResampled$MAP), fill = "grey90") +  
       geom_line(color = "darkolivegreen3")+
       labs(y = "MAP (mmHg)", x = "Time (s)")+
       theme(axis.title = element_text(face = "bold"), 
@@ -755,6 +760,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
             axis.line = element_line(color = "black"),
             strip.background = element_blank())
     Stim_CPP_Plot = ggplot(StressResampled, aes(x = Time, y = CPP))+
+    geom_rect(xmin = (max(StressResampled$Time) - z), xmax = max(StressResampled$Time), ymin= min(StressResampled$CPP), ymax = max(StressResampled$CPP), fill = "grey90") +  
       geom_line(color = "orchid")+ 
       labs(y = "CPP (mmHg)", x = "Time (s)")+
       theme(axis.title = element_text(face = "bold"), 
@@ -762,6 +768,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
             axis.line = element_line(color = "black"),
             strip.background = element_blank())
     Stim_CVCi_Plot = ggplot(StressResampled, aes(x = Time, y = CVCi))+
+    geom_rect(xmin = (max(StressResampled$Time) - z), xmax = max(StressResampled$Time), ymin= min(StressResampled$CVCi), ymax = max(StressResampled$CVCi), fill = "grey90") +  
       geom_line(color = "goldenrod2")+ 
       labs(y = "CVCi (cm/s/mmHg)", x = "Time (s)")+
       theme(axis.title = element_text(face = "bold"), 
@@ -769,6 +776,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
             axis.line = element_line(color = "black"),
             strip.background = element_blank())
     Stim_CPI_Plot = ggplot(StressResampled, aes(x = Time, y = CPI))+
+    geom_rect(xmin = (max(StressResampled$Time) - z), xmax = max(StressResampled$Time), ymin= min(StressResampled$CPI), ymax = max(StressResampled$CPI), fill = "grey90") +  
       geom_line(color = "grey40")+ 
       labs(y = "CPI (A.U)", x = "Time (s)")+
       theme(axis.title = element_text(face = "bold"), 
