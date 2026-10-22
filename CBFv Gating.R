@@ -83,8 +83,8 @@ S.Fil = filtfilt(Band.Filt.Coef$b, Band.Filt.Coef$a, Dataset_Stim$InverseCBFv)
 
 print("Pre")
 
-B.Peaks = data.frame(pracma::findpeaks(Dataset_Base$B.Fil, npeaks = Inf, minpeakdistance = (0.5 * Fq)))
-S.Peaks = data.frame(pracma::findpeaks(Dataset_Stim$S.Fil, npeaks = Inf, minpeakdistance = (0.5 * Fq)))
+B.Peaks = data.frame(pracma::findpeaks(B.Fil, npeaks = Inf, minpeakdistance = (0.5 * Fq)))
+S.Peaks = data.frame(pracma::findpeaks(S.Fil, npeaks = Inf, minpeakdistance = (0.5 * Fq)))
 
 
 
