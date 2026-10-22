@@ -85,14 +85,14 @@ ui = page_sidebar(
              tooltip(HTML(paste0("Select the number of seconds from the end of baseline to represent V",tags$sub("0"), ", MAP", tags$sub("0"), ", C", tags$sub("0"), ", and R", tags$sub("0")))),
            
            numericInput("Av_Interval_2", label = "Stimulus Steady State (s)", value = 20)|>
-             tooltip(HTML(paste0("Select the number of seconds from the end of stimulus to represent steady state V",tags$sub("MCAv"), ", V", tags$sub("CrCP"), ", V", tags$sub("RAP"), ", and V", tags$sub("MAP"))))),
+             tooltip(HTML(paste0("Select the number of seconds from the end of stimulus to represent steady state V",tags$sub("MCAv"), ", V", tags$sub("CrCP"), ", V", tags$sub("RAP"), ", and V", tags$sub("MAP")))),
+           
+          actionButton("runit2", "Analyze")),
       
       card(card_header(strong("Export")),
            textInput("text", label = "File Name:", value = "Enter file name...") |> 
              tooltip("Name file for export"),
-           uiOutput("ExportButton"),
-          
-          actionButton("runit2", "Analyze")),
+           uiOutput("ExportButton")),
       
       
       tags$div(
