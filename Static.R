@@ -7,7 +7,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e) {
     if (e == 1) {
       HtConst = 0.7355
       } else {
-      HtConst = 0.78)
+      HtConst = 0.78}
     
     # -----------------------------------------------------------------------------#
     # Import Data and Fill in Beats                                                #
