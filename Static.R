@@ -1,8 +1,13 @@
-Static_Func = function(x,y,z,a,b,d,j, m, f) {
+Static_Func = function(x,y,z,a,b,d,j, m, f, e) {
   
   withProgress(message = "Calculations in progress, please wait...", {
     
     options(digits = 5)
+
+    if (e == 1) {
+      HtConst = 0.7355
+      } else {
+      HtConst = 0.76)
     
     # -----------------------------------------------------------------------------#
     # Import Data and Fill in Beats                                                #
@@ -177,7 +182,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f) {
       Time_Periods = seq(0, 2 * pi, length.out = n)
 
       #Calculate estimated CPP. 
-      CPP = (PulledData$FilteredMAP - (0.7355 * d))
+      CPP = (PulledData$FilteredMAP - (HtConst * d))
 
       
       Mean_Velocity = mean(PulledData$FilteredLMCAv)
@@ -318,7 +323,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f) {
       Time_Periods = seq(0, 2 * pi, length.out = n)
       
        #CPP Calculation
-      CPP3 = (PulledData3$FilteredMAP - (0.7355 * d))
+      CPP3 = (PulledData3$FilteredMAP - (HtConst * d))
       
       #Calculate Mean MAP and V
       Mean_Velocity = mean(PulledData3$FilteredLMCAv)
