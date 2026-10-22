@@ -76,7 +76,9 @@ ui = page_sidebar(
              tooltip("Select the number of seconds from the end of baseline to average for steady state values"),
            
            numericInput("Stim_Av_Interval", label = "Stimulus Steady State (s)", value = 20) |>
-             tooltip("Select the number of seconds from the end of stimulus to average for steady state values")),
+             tooltip("Select the number of seconds from the end of stimulus to average for steady state values"),
+          
+           actionButton("runit2", "Analyze"))),
       
       card(card_header(strong("Subcomponent Analyzer")), 
            numericInput("Av_Interval", label = "Initial Value Average (s)", value = 20) |>
@@ -274,7 +276,7 @@ server = function(input, output, session) {
   })
   
   
-  B2B_1 = reactive({
+  B2B_1 = eventReactive(input$runit, {
     
     req(input$file$datapath, input$condition, input$Fs, input$gate)
 
@@ -288,7 +290,7 @@ server = function(input, output, session) {
   })
   
   
-  Work2BDone = eventReactive(input$runit, {
+  Work2BDone = eventReactive(input$runit2, {
     
     req(input$file$datapath, input$Av_Interval, input$Base_Av_Interval, input$Stim_Av_Interval, input$Av_Interval_2, input$HtCorrect, input$condition, input$Fs)
     
