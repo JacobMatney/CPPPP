@@ -279,13 +279,7 @@ server = function(input, output, session) {
     stopApp()
   })
   
-  #observeEvent(input$HtCorrect > 0, {
-    #output$HtConst = renderUI({
-      #radioButtons("HtConst", label = tags$u("Select Constant:"), 
-                        #choices = list("0.7355" = 1, "0.76" = 2), selected = 1) |> 
-             #tooltip("Select which condition you wish to analyze; CondA = A, CondB = B")
-      #})
-    #})
+
 
   B2B_1 = eventReactive(input$runit, {
     
@@ -302,6 +296,8 @@ server = function(input, output, session) {
   
   
   Work2BDone = eventReactive(input$runit2, {
+    if (is.na(input$HtConst) {
+      HtConst = 1}
     
     req(input$file$datapath, input$Av_Interval, input$Base_Av_Interval, input$Stim_Av_Interval, input$Av_Interval_2, input$HtCorrect, input$condition, input$Fs, input$HtConst)
     
