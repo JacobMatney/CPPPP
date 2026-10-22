@@ -4,7 +4,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NA) {
     
     options(digits = 5)
 
-    if (e == 1 | e == NA) {
+    if (e == 1 | is.na(e)) {
       HtConst = 0.7355
       } else {
       HtConst = 0.78}
