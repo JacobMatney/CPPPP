@@ -1,4 +1,4 @@
-Static_Func = function(x,y,z,a,b,d,j, m, f, e = NA) {
+Static_Func = function(x,y,z,a,b,d,j, m, f, e) {
   
   withProgress(message = "Calculations in progress, please wait...", {
     
