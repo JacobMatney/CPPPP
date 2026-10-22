@@ -652,8 +652,8 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     
     #---- Baseline Individual Plots ---- 
     Base_MCAv_Plot = ggplot(BaseResampled, aes(x = Time, y = MCAv))+
-      geom_line(color = "black")+ 
-      geom_rect(aes(xmin = max(Time) - z, xmax = max(Time), ymin= -Inf, ymax = Inf), fill = "grey90") +
+    geom_rect(aes(xmin = max(Time) - z, xmax = max(Time), ymin= -Inf, ymax = Inf), fill = "grey90") +  
+    geom_line(color = "black")+ 
       labs(y = "CBFv (cm/s)", x = "Time (s)") +
       theme(axis.title = element_text(face = "bold"), 
             panel.background = element_blank(), 
