@@ -72,7 +72,7 @@ ui = page_sidebar(
              tooltip("Input the distance that the probe is above the heart (cm); 0 = supine", options = list(container = "body")),
 
            conditionalPanel(condition = "input.HtCorrect > 0", radioButtons("HtConst", label = tags$u("Select Constant:"), 
-                        choices = list("0.7355" = 1, "0.76" = 2), selected = 1)),
+                        choices = list("0.7355" = 1, "0.78" = 2), selected = 1)),
            
            numericInput("Base_Av_Interval", label = "Baseline Steady State (s)", value = 20) |>
              tooltip("Select the number of seconds from the end of baseline to average for steady state values"),
@@ -306,7 +306,7 @@ server = function(input, output, session) {
     req(input$file$datapath, input$Av_Interval, input$Base_Av_Interval, input$Stim_Av_Interval, input$Av_Interval_2, input$HtCorrect, input$condition, input$Fs, input$HtConst)
     
     Static_Func(input$file$datapath, input$Av_Interval, input$Base_Av_Interval, input$Stim_Av_Interval, input$Av_Interval_2, 
-                    input$HtCorrect, B2B_1()$Baseline.Data, B2B_1()$Stim.Data, input$Fs)
+                    input$HtCorrect, B2B_1()$Baseline.Data, B2B_1()$Stim.Data, input$Fs, input$HrConst)
     
     
   })
