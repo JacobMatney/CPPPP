@@ -78,7 +78,7 @@ ui = page_sidebar(
            numericInput("Stim_Av_Interval", label = "Stimulus Steady State (s)", value = 20) |>
              tooltip("Select the number of seconds from the end of stimulus to average for steady state values"),
           
-           actionButton("runit2", "Analyze"))),
+           actionButton("runit2", "Analyze")),
       
       card(card_header(strong("Subcomponent Analyzer")), 
            numericInput("Av_Interval", label = "Initial Value Average (s)", value = 20) |>
