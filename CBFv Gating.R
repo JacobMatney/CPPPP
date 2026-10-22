@@ -77,14 +77,14 @@ Dataset_Stim$InverseCBFv = -Dataset_Stim$CBFv
 B.Fil = filtfilt(Band.Filt.Coef$b, Band.Filt.Coef$a, Dataset_Base$InverseCBFv) 
 S.Fil = filtfilt(Band.Filt.Coef$b, Band.Filt.Coef$a, Dataset_Stim$InverseCBFv) 
   
-Dataset_Base$BW_Filt = signal::filter(Derive.Coef, B.Fil)
-Dataset_Stim$BW_Filt = signal::filter(Derive.Coef, S.Fil)
+#Dataset_Base$BW_Filt = signal::filter(Derive.Coef, B.Fil)
+#Dataset_Stim$BW_Filt = signal::filter(Derive.Coef, S.Fil)
   
 
 print("Pre")
 
-B.Peaks = data.frame(pracma::findpeaks(Dataset_Base$BW_Filt, npeaks = Inf, minpeakdistance = (0.5 * Fq)))
-S.Peaks = data.frame(pracma::findpeaks(Dataset_Stim$BW_Filt, npeaks = Inf, minpeakdistance = (0.5 * Fq)))
+B.Peaks = data.frame(pracma::findpeaks(Dataset_Base$B.Fil, npeaks = Inf, minpeakdistance = (0.5 * Fq)))
+S.Peaks = data.frame(pracma::findpeaks(Dataset_Stim$S.Fil, npeaks = Inf, minpeakdistance = (0.5 * Fq)))
 
 
 
