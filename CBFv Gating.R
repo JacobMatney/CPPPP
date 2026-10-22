@@ -36,7 +36,7 @@ incProgress(amount = 0.25)
 Fz = z
 Nyq = z / 2
 BW_Cutoff = 20 / Nyq
-Wn = c(7, 12) / Nyq
+Wn = c(5, 15) / Nyq
 Derive.Coef = sgolay(p = 3, n = 5, m = 1)
 Band.Filt.Coef = butter(4, Wn, type = "pass")
 
@@ -85,6 +85,10 @@ S.Fil = filtfilt(Band.Filt.Coef$b, Band.Filt.Coef$a, Dataset_Stim$InverseCBFv)
    
 Dataset_Base$InverseCBFv = bw_filter(Dataset_Base$InverseCBFv, n = 8, W = BW_Cutoff, zero_lag = TRUE)
 Dataset_Stim$InverseCBFv = bw_filter(Dataset_Stim$InverseCBFv, n = 8, W = BW_Cutoff, zero_lag = TRUE)
+
+
+Dataset_Base$InverseCBFv = zoo::rollmean(Dataset_Base$InverseCBFv, k = as.integer(0.05*Fz), fill = 0)
+Dataset_Stim$InverseCBFv = zoo::rollmean(Dataset_Stim$InverseCBFv, k = as.integer(0.05*Fz), fill = 0)
   
 print("Pre")
 
