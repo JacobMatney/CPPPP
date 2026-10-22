@@ -71,7 +71,8 @@ ui = page_sidebar(
            numericInput("HtCorrect", label = "Height Correction (cm)", value = 0) |>
              tooltip("Input the distance that the probe is above the heart (cm); 0 = supine", options = list(container = "body")),
 
-           uiOutput("HtConst"),
+           conditionalPanel(condition = "HtCorrect > 0", radioButtons("HtConst", label = tags$u("Select Constant:"), 
+                        choices = list("0.7355" = 1, "0.76" = 2), selected = 1)),
            
            numericInput("Base_Av_Interval", label = "Baseline Steady State (s)", value = 20) |>
              tooltip("Select the number of seconds from the end of baseline to average for steady state values"),
@@ -278,13 +279,13 @@ server = function(input, output, session) {
     stopApp()
   })
   
-  observeEvent(input$HtCorrect > 0, {
-    output$HtConst = renderUI({
-      radioButtons("HtConst", label = tags$u("Select Constant:"), 
-                        choices = list("0.7355" = 1, "0.76" = 2), selected = 1) |> 
-             tooltip("Select which condition you wish to analyze; CondA = A, CondB = B")
-      })
-    })
+  #observeEvent(input$HtCorrect > 0, {
+    #output$HtConst = renderUI({
+      #radioButtons("HtConst", label = tags$u("Select Constant:"), 
+                        #choices = list("0.7355" = 1, "0.76" = 2), selected = 1) |> 
+             #tooltip("Select which condition you wish to analyze; CondA = A, CondB = B")
+      #})
+    #})
 
   B2B_1 = eventReactive(input$runit, {
     
