@@ -70,7 +70,8 @@ ui = page_sidebar(
       card(card_header(strong("CrCP & RAP Analyzer")), 
            numericInput("HtCorrect", label = "Height Correction (cm)", value = 0) |>
              tooltip("Input the distance that the probe is above the heart (cm); 0 = supine", options = list(container = "body")),
-           
+
+           uiOutput("HtConst"),
            
            numericInput("Base_Av_Interval", label = "Baseline Steady State (s)", value = 20) |>
              tooltip("Select the number of seconds from the end of baseline to average for steady state values"),
