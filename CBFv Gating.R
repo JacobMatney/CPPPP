@@ -34,7 +34,7 @@ incProgress(amount = 0.25)
 
 Fz = z
 Nyq = z / 2
-BW_Cutoff = 20 / Nyq
+BW_Cutoff = 12 / Nyq
 
 if(y == 1){
   Dataset_Base = read_excel(x, 
