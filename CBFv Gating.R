@@ -83,8 +83,8 @@ S.Fil = filtfilt(Band.Filt.Coef$b, Band.Filt.Coef$a, Dataset_Stim$InverseCBFv)
 #B.Deriv <<- gradient(Dataset_Base$BW_Filt, Dataset_Base$Time)
 #S.Deriv <<- gradient(Dataset_Stim$BW_Filt, Dataset_Stim$Time)
    
-Dataset_Base$InverseCBFv = bw_filter(B.Fil, n = 8, W = BW_Cutoff, zero_lag = TRUE)
-Dataset_Stim$InverseCBFv = bw_filter(S.Fil, n = 8, W = BW_Cutoff, zero_lag = TRUE)
+Dataset_Base$InverseCBFv = bw_filter(Dataset_Base$InverseCBFv, n = 8, W = BW_Cutoff, zero_lag = TRUE)
+Dataset_Stim$InverseCBFv = bw_filter(Dataset_Stim$InverseCBFv, n = 8, W = BW_Cutoff, zero_lag = TRUE)
   
 print("Pre")
 
