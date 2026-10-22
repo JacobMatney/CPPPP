@@ -296,8 +296,6 @@ server = function(input, output, session) {
   
   
   Work2BDone = eventReactive(input$runit2, {
-    if (is.na(input$HtConst) {
-      HtConst = 1}
     
     req(input$file$datapath, input$Av_Interval, input$Base_Av_Interval, input$Stim_Av_Interval, input$Av_Interval_2, input$HtCorrect, input$condition, input$Fs, input$HtConst)
     
