@@ -35,7 +35,7 @@ incProgress(amount = 0.25)
 Fz = z
 Nyq = z / 2
 BW_Cutoff = 20 / Nyq
-Wn = c(5, 8) / Nyq
+Wn = c(3, 10) / Nyq
 Derive.Coef = sgolay(p = 3, n = 5, m = 1)
 Band.Filt.Coef = butter(4, Wn, type = "pass")
 
