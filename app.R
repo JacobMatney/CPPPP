@@ -287,7 +287,7 @@ server = function(input, output, session) {
     
   })
   
-  
+  observeEvent(input$runit, {
   Work2BDone = reactive({
     
     req(input$file$datapath, input$Av_Interval, input$Base_Av_Interval, input$Stim_Av_Interval, input$Av_Interval_2, input$HtCorrect, input$condition, input$Fs)
@@ -297,7 +297,7 @@ server = function(input, output, session) {
     
     
   })
-
+})
   
   output$Plot = renderPlotly({
     req(B2B_1)
