@@ -70,7 +70,7 @@ Dataset_Base$Time = 1:length(Dataset_Base$CBFv)
 Dataset_Stim$Time = 1:length(Dataset_Stim$CBFv)
 
 
-Dataset_Base$InverseCBFv = -Dataset_Base$CBFv
+Dataset_Base$InverseCBFv = Dataset_Base$CBFv
 Dataset_Stim$InverseCBFv = -Dataset_Stim$CBFv
 
 #B.Fil = filtfilt(Band.Filt.Coef$b, Band.Filt.Coef$a, Dataset_Base$InverseCBFv) 
