@@ -660,6 +660,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
             axis.line = element_line(color = "black"),
             strip.background = element_blank())
     Base_PETCO2_Plot = ggplot(BaseResampled, aes(x = Time, y = PETCO2))+
+      geom_rect(xmin = (max(BaseResampled$Time) - z), xmax = max(BaseResampled$Time), ymin= min(BaseResampled$PETCO2), ymax = max(BaseResampled$PETCO2), fill = "grey90") +  
       geom_line(color = "black")+ 
       labs(y = "PETCO2 (mmHg)", x = "Time (s)")+
       theme(axis.title = element_text(face = "bold"), 
@@ -667,6 +668,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
             axis.line = element_line(color = "black"),
             strip.background = element_blank())
     Base_CrCP_Plot = ggplot(BaseResampled, aes(x = Time, y = CrCP))+
+      geom_rect(xmin = (max(BaseResampled$Time) - z), xmax = max(BaseResampled$Time), ymin= min(BaseResampled$CrCP), ymax = max(BaseResampled$CrCP), fill = "grey90") +  
       geom_line(color = "deepskyblue")+
       labs(y = "CrCP (mmHg)", x = "Time (s)")+
       theme(axis.title = element_text(face = "bold"), 
@@ -674,6 +676,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
             axis.line = element_line(color = "black"),
             strip.background = element_blank())
     Base_RAP_Plot = ggplot(BaseResampled, aes(x = Time, y = RAP))+
+      geom_rect(xmin = (max(BaseResampled$Time) - z), xmax = max(BaseResampled$Time), ymin= min(BaseResampled$RAP), ymax = max(BaseResampled$RAP), fill = "grey90") +  
       geom_line(color = "red")+
       labs(y = "RAP (mmHg·s/cm)", x = "Time (s)")+
       theme(axis.title = element_text(face = "bold"), 
@@ -681,6 +684,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
             axis.line = element_line(color = "black"),
             strip.background = element_blank())
     Base_MAP_Plot = ggplot(BaseResampled, aes(x = Time, y = MAP))+
+      geom_rect(xmin = (max(BaseResampled$Time) - z), xmax = max(BaseResampled$Time), ymin= min(BaseResampled$MAP), ymax = max(BaseResampled$MAP), fill = "grey90") +  
       geom_line(color = "darkolivegreen3")+
       labs(y = "MAP (mmHg)", x = "Time (s)")+
       theme(axis.title = element_text(face = "bold"), 
@@ -689,6 +693,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
             strip.background = element_blank())
     
     Base_CPP_Plot = ggplot(BaseResampled, aes(x = Time, y = CPP))+
+      geom_rect(xmin = (max(BaseResampled$Time) - z), xmax = max(BaseResampled$Time), ymin= min(BaseResampled$CPP), ymax = max(BaseResampled$CPP), fill = "grey90") +  
       geom_line(color = "orchid")+ 
       labs(y = "CPP (mmHg)", x = "Time (s)")+
       theme(axis.title = element_text(face = "bold"), 
@@ -696,6 +701,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
             axis.line = element_line(color = "black"),
             strip.background = element_blank())
     Base_CVCi_Plot = ggplot(BaseResampled, aes(x = Time, y = CVCi))+
+      geom_rect(xmin = (max(BaseResampled$Time) - z), xmax = max(BaseResampled$Time), ymin= min(BaseResampled$CVCi), ymax = max(BaseResampled$CVCi), fill = "grey90") +  
       geom_line(color = "goldenrod2")+ 
       labs(y = "CVCi (cm/s/mmHg)", x = "Time (s)")+
       theme(axis.title = element_text(face = "bold"), 
@@ -703,6 +709,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
             axis.line = element_line(color = "black"),
             strip.background = element_blank())
     Base_CPI_Plot = ggplot(BaseResampled, aes(x = Time, y = CPI))+
+      geom_rect(xmin = (max(BaseResampled$Time) - z), xmax = max(BaseResampled$Time), ymin= min(BaseResampled$CPI), ymax = max(BaseResampled$CPI), fill = "grey90") +  
       geom_line(color = "grey40")+ 
       labs(y = "CPI (A.U)", x = "Time (s)")+
       theme(axis.title = element_text(face = "bold"), 
