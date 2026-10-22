@@ -303,7 +303,7 @@ server = function(input, output, session) {
   
   Work2BDone = eventReactive(input$runit2, {
     
-    req(input$file$datapath, input$Av_Interval, input$Base_Av_Interval, input$Stim_Av_Interval, input$Av_Interval_2, input$HtCorrect, input$condition, input$Fs)
+    req(input$file$datapath, input$Av_Interval, input$Base_Av_Interval, input$Stim_Av_Interval, input$Av_Interval_2, input$HtCorrect, input$condition, input$Fs, input$HtConst)
     
     Static_Func(input$file$datapath, input$Av_Interval, input$Base_Av_Interval, input$Stim_Av_Interval, input$Av_Interval_2, 
                     input$HtCorrect, B2B_1()$Baseline.Data, B2B_1()$Stim.Data, input$Fs)
