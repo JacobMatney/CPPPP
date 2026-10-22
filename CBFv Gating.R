@@ -36,6 +36,7 @@ Fz = z
 Nyq = z / 2
 BW_Cutoff = 20 / Nyq
 Derive.Coef = sgolay(p = 3, n = 5, m = 1)
+Band.Filt.Coef = butter(4, Wn, type = "pass")
 
 if(y == 1){
   Dataset_Base = read_excel(x, 
@@ -71,12 +72,14 @@ Dataset_Stim$Time = 1:length(Dataset_Stim$CBFv)
 
 Dataset_Base$InverseCBFv = -Dataset_Base$CBFv
 Dataset_Stim$InverseCBFv = -Dataset_Stim$CBFv
+
+B.Fil = filtfilt(Band.Filt.Coef$b, Band.Filt.Coef$a, Dataset_Base$InverseCBFv) 
+S.Fil = filtfilt(Band.Filt.Coef$b, Band.Filt.Coef$a, Dataset_Stim$InverseCBFv) 
   
-Dataset_Base$BW_Filt = signal::filter(Derive.Coef, Dataset_Base$InverseCBFv)
-Dataset_Stim$BW_Filt = signal::filter(Derive.Coef, Dataset_Stim$InverseCBFv)
+Dataset_Base$BW_Filt = signal::filter(Derive.Coef, B.Fil)
+Dataset_Stim$BW_Filt = signal::filter(Derive.Coef, S.Fil)
   
-Dataset_Base$InverseCBFv = -Dataset_Base$CBFv
-Dataset_Stim$InverseCBFv = -Dataset_Stim$CBFv
+
 print("Pre")
 
 B.Peaks = data.frame(pracma::findpeaks(Dataset_Base$BW_Filt, npeaks = Inf, minpeakdistance = (0.5 * Fq)))
