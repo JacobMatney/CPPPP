@@ -86,8 +86,8 @@ Dataset_Stim$InverseCBFv = -Dataset_Stim$CBFv
 
 print("Pre")
 
-B.Peaks = data.frame(pracma::findpeaks(Dataset_Base$InverseCBFv, npeaks = Inf, minpeakdistance = (0.5 * Fz)))
-S.Peaks = data.frame(pracma::findpeaks(Dataset_Stim$InverseCBFv, npeaks = Inf, minpeakdistance = (0.5 * Fz)))
+B.Peaks = data.frame(pracma::findpeaks(Dataset_Base$InverseCBFv, npeaks = Inf, minpeakdistance = (0.4 * Fz)))
+S.Peaks = data.frame(pracma::findpeaks(Dataset_Stim$InverseCBFv, npeaks = Inf, minpeakdistance = (0.4 * Fz)))
 
 
 
