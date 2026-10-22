@@ -288,7 +288,7 @@ server = function(input, output, session) {
   })
   
   
-  Work2BDone = reactive({
+  Work2BDone = observeEvent(input$runit, {
     
     req(input$file$datapath, input$Av_Interval, input$Base_Av_Interval, input$Stim_Av_Interval, input$Av_Interval_2, input$HtCorrect, input$condition, input$Fs)
     
