@@ -90,7 +90,9 @@ ui = page_sidebar(
       card(card_header(strong("Export")),
            textInput("text", label = "File Name:", value = "Enter file name...") |> 
              tooltip("Name file for export"),
-           uiOutput("ExportButton")),
+           uiOutput("ExportButton"),
+          
+          actionButton("runit2", "Analyze")),
       
       
       tags$div(
