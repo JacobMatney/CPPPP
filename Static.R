@@ -1,10 +1,10 @@
-Static_Func = function(x,y,z,a,b,d,j, m, f, e = 1) {
+Static_Func = function(x,y,z,a,b,d,j, m, f, e = NA) {
   
   withProgress(message = "Calculations in progress, please wait...", {
     
     options(digits = 5)
 
-    if (e == 1) {
+    if (e == 1 || e == NA) {
       HtConst = 0.7355
       } else {
       HtConst = 0.78}
