@@ -75,11 +75,12 @@ Dataset_Stim$Time = 1:length(Dataset_Stim$CBFv)
 Dataset_Base$InverseCBFv = -Dataset_Base$CBFv
 Dataset_Stim$InverseCBFv = -Dataset_Stim$CBFv
 
-B.Deriv <<- gradient(Dataset_Base$InverseCBFv, Dataset_Base$Time)
-S.Deriv <<- gradient(Dataset_Stim$InverseCBFv, Dataset_Stim$Time)
-  
+
 B.Fil = filtfilt(Band.Filt.Coef$b, Band.Filt.Coef$a, Dataset_Base$InverseCBFv) 
 S.Fil = filtfilt(Band.Filt.Coef$b, Band.Filt.Coef$a, Dataset_Stim$InverseCBFv) 
+  
+B.Deriv <<- gradient(B.Fil, Dataset_Base$Time)
+S.Deriv <<- gradient(S.Fil, Dataset_Stim$Time)
   
 #Dataset_Base$BW_Filt = signal::filter(Derive.Coef, B.Fil)
 #Dataset_Stim$BW_Filt = signal::filter(Derive.Coef, S.Fil)
