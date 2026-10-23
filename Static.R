@@ -261,30 +261,31 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     Base_end_beat = length(Base_Matrix_Df$Beat) 
     Base_Matrix_Df = Base_Matrix_Df[- Base_end_beat,]
     Base_Matrix_Df = Base_Matrix_Df[-1,]
-    
+
+    CrCPCorrectBase <<- Base_Matrix_Df[Base_Matrix_Df$CrCP > 0,]
     
     # -----------------------------------------------------------------------------#
     # Data processing for newly calculated CrCP and RAP                            #
     # -----------------------------------------------------------------------------#
     #---- Resampling Data for Baseline and Steady State ------
-    BaseT = seq(min(Base_Matrix_Df$Time), max(Base_Matrix_Df$Time), by = .2)
+    BaseT = seq(min(CrCPCorrectBase$Time), max(CrCPCorrectBase$Time), by = .2)
     
     
-    BaseResampled = data.frame(CrCP = spline(Base_Matrix_Df$Time, Base_Matrix_Df$CrCP, xout = BaseT)$y, 
-                               RAP = spline(Base_Matrix_Df$Time, Base_Matrix_Df$RAP, xout = BaseT)$y, 
-                               CVCi = spline(Base_Matrix_Df$Time, Base_Matrix_Df$CVCi, xout = BaseT)$y,
-                               MAP = spline(Base_Matrix_Df$Time, Base_Matrix_Df$MAP, xout = BaseT)$y, 
-                               CPP = spline(Base_Matrix_Df$Time, Base_Matrix_Df$CPP, xout = BaseT)$y,
-                               CPI = spline(Base_Matrix_Df$Time, Base_Matrix_Df$CPI, xout = BaseT)$y,
-                               PETCO2 = spline(Base_Matrix_Df$Time, Base_Matrix_Df$PETCO2, xout = BaseT)$y,
-                               MCAv = spline(Base_Matrix_Df$Time, Base_Matrix_Df$MCAv, xout = BaseT)$y,
-                               Check = spline(Base_Matrix_Df$Time, Base_Matrix_Df$Check, xout = BaseT)$y,
+    BaseResampled = data.frame(CrCP = spline(CrCPCorrectBase$Time, CrCPCorrectBase$CrCP, xout = BaseT)$y, 
+                               RAP = spline(CrCPCorrectBase$Time, CrCPCorrectBase$RAP, xout = BaseT)$y, 
+                               CVCi = spline(CrCPCorrectBase$Time, CrCPCorrectBase$CVCi, xout = BaseT)$y,
+                               MAP = spline(CrCPCorrectBase$Time, CrCPCorrectBase$MAP, xout = BaseT)$y, 
+                               CPP = spline(CrCPCorrectBase$Time, CrCPCorrectBase$CPP, xout = BaseT)$y,
+                               CPI = spline(CrCPCorrectBase$Time, CrCPCorrectBase$CPI, xout = BaseT)$y,
+                               PETCO2 = spline(CrCPCorrectBase$Time, CrCPCorrectBase$PETCO2, xout = BaseT)$y,
+                               MCAv = spline(CrCPCorrectBase$Time, CrCPCorrectBase$MCAv, xout = BaseT)$y,
+                               Check = spline(CrCPCorrectBase$Time, CrCPCorrectBase$Check, xout = BaseT)$y,
                                Time = BaseT)
     
     
     # ---- Removing negative CrCP values ---- 
     
-    CrCPCorrectBase = BaseResampled[BaseResampled$CrCP > 0,]
+    #CrCPCorrectBase = BaseResampled[BaseResampled$CrCP > 0,]
     
     
     
