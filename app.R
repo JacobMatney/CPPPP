@@ -160,6 +160,7 @@ ui = page_sidebar(
                               plotlyOutput("Base_PETCO2_Plot")))),
              p("*grey represents averaging window")),
       
+      
       column(width = 6, 
              uiOutput("Stim_Results"),
              navset_card_tab(
@@ -187,6 +188,8 @@ ui = page_sidebar(
                nav_panel("PETCO2", 
                          card(full_screen = T,
                               plotlyOutput("Stim_PETCO2_Plot"))))),
+
+      hr(),
       
       column(width = 12, navset_card_tab(
         nav_panel("Baseline Dataframe",
