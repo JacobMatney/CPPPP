@@ -271,7 +271,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     BaseT = seq(min(CrCPCorrectBase$Time), max(CrCPCorrectBase$Time), by = .2)
     
     
-    BaseResampled = data.frame(CrCP = spline(CrCPCorrectBase$Time, CrCPCorrectBase$CrCP, xout = BaseT)$y, 
+    BaseResampled <<- data.frame(CrCP = spline(CrCPCorrectBase$Time, CrCPCorrectBase$CrCP, xout = BaseT)$y, 
                                RAP = spline(CrCPCorrectBase$Time, CrCPCorrectBase$RAP, xout = BaseT)$y, 
                                CVCi = spline(CrCPCorrectBase$Time, CrCPCorrectBase$CVCi, xout = BaseT)$y,
                                MAP = spline(CrCPCorrectBase$Time, CrCPCorrectBase$MAP, xout = BaseT)$y, 
