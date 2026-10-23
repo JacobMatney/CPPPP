@@ -290,6 +290,7 @@ server = function(input, output, session) {
     req(input$file$datapath, input$condition, input$Fs, input$gate)
 
     print("button pushed!")
+    flush.console()
     
     if (input$gate == 1) {
     R_Detect(input$file$datapath, input$condition, input$Fs)
