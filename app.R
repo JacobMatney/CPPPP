@@ -157,7 +157,9 @@ ui = page_sidebar(
                               plotlyOutput("Base_MAP_Plot"))), 
                nav_panel("PETCO2", 
                          card(full_screen = T,
-                              plotlyOutput("Base_PETCO2_Plot"))))),
+                              plotlyOutput("Base_PETCO2_Plot")))),
+            
+            uiOutput("*grey represents averaging window")),
       
       column(width = 6, 
              uiOutput("Stim_Results"),
