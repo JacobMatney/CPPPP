@@ -409,13 +409,16 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     Stress_end_beat = length(Stress_Matrix_Df$Beat) 
     Stress_Matrix_Df = Stress_Matrix_Df[- Stress_end_beat,]
     Stress_Matrix_Df = Stress_Matrix_Df[-1,]
+
+    
+    
     # -----------------------------------------------------------------------------#
     # Dynamic Data Processing                                                      #
     # -----------------------------------------------------------------------------#
     #---- remove negative CrCP Values ---- 
     Corrected_Stress = Stress_Matrix_Df
     CrCPCorrectStress = as.data.frame(Corrected_Stress)
-    #CrCPCorrectStress = na.omit(CrCPCorrectStress)
+    CrCPCorrectStress = na.omit(CrCPCorrectStress)
     
     
     #---- Resample data at 5 hz ---- 
