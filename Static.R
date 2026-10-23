@@ -262,7 +262,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     Base_Matrix_Df = Base_Matrix_Df[- Base_end_beat,]
     Base_Matrix_Df = Base_Matrix_Df[-1,]
 
-    CrCPCorrectBase <<- Base_Matrix_Df[Base_Matrix_Df$CrCP > 0,]
+    CrCPCorrectBase <<- na.omit(Base_Matrix_Df)
     
     # -----------------------------------------------------------------------------#
     # Data processing for newly calculated CrCP and RAP                            #
