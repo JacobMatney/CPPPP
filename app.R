@@ -284,7 +284,7 @@ server = function(input, output, session) {
   })
 
   observeEvent(input$runit, {
-    updateNavsetBar(session, "tabs", "Beat Detection")
+    nav_select(id = "tabs", session = get_current_session(), selected = "Beat Detection")
     })
 
   B2B_1 = eventReactive(input$runit, {
