@@ -283,12 +283,13 @@ server = function(input, output, session) {
     stopApp()
   })
 
+  observeEvent(input$runit, {
+        nav_select(id = "tabs", selected =  "ECG Signal") 
+    })
 
   B2B_1 = eventReactive(input$runit, {
     
     req(input$file$datapath, input$condition, input$Fs, input$gate)
-
-    nav_select(id = "tabs", selected = "Beat Detection") 
     
     print("button pushed!")
     flush.console()
