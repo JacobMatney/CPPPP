@@ -122,22 +122,25 @@ PStatic_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     dtMAP2 <<- ggplot(data = DtDf, aes(x = T, y = Dt)) + 
                      geom_line()
 
+    #identify which index is above threshold. 
     PosIndex <<- which(DtDf$Dt > 0.5)
 
+    #identify the distance between each peak.
     DiffIndex <<- diff(PosIndex, lag = 1)
 
+    #identify which peaks MUST be physiocal due to the difference being longer than 1/4 the sampling frequency.
     IDPhysio <<- which(DiffIndex > (0.25 * f))
 
     NEWMAPDATA = Baseline_Dataset$reBAP
     
     for (i in 1:length(IDPhysio)) {
-       start = PosIndex[IDPhysio[i]]
-       end = PosIndex[IDPhysio[i] + DiffIndex[IDPhysio[i]]]
+       start = IDPhysio[i]
+       end = IDPhysio[i + DiffIndex[IDPhysio[i]]
 
 
       
        print(start)
-      print(DiffIndex[i])
+      print(DiffIndex[IDPhysio[i]])
        print(end)
       
        NEWMAP = NEWMAPDATA[PosIndex[IDPhysio[i]]:PosIndex[IDPhysio[i]+DiffIndex[i]]] = NA
