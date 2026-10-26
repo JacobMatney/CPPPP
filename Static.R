@@ -424,7 +424,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     #---- Resample data at 5 hz ---- 
     StressT = seq(min(CrCPCorrectStress$Time), max(CrCPCorrectStress$Time), by = .2)
     
-    StressResampled = data.frame(CrCP = spline(CrCPCorrectStress$Time, CrCPCorrectStress$CrCP, xout = StressT)$y, 
+    StressResampled = data.frame(CrCP = approx(CrCPCorrectStress$Time, CrCPCorrectStress$CrCP, xout = StressT)$y, 
                                  RAP = spline(CrCPCorrectStress$Time, CrCPCorrectStress$RAP, xout = StressT)$y, 
                                  CVCi = spline(CrCPCorrectStress$Time, CrCPCorrectStress$CVCi, xout = StressT)$y,
                                  MAP = spline(CrCPCorrectStress$Time, CrCPCorrectStress$MAP, xout = StressT)$y,
