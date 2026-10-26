@@ -1,4 +1,4 @@
-Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
+PStatic_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
   
   withProgress(message = "Calculations in progress, please wait...", {
     
@@ -124,14 +124,18 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
 
     PosIndex <<- which(DtDf$Dt > 0.5)
 
-    DiffIndex <<- diff(which(DtDf$Dt > 0.5), lag = 1)
+    DiffIndex <<- diff(PosIndex, lag = 1)
 
     IDPhysio <<- which(DiffIndex > (0.25 * f))
 
     NEWMAPDATA = Baseline_Dataset$reBAP
     
     for (i in 1:length(IDPhysio)) {
-       print(PosIndex[IDPhysio[i]])
+       start = PosIndex[IDPhysio[i]])
+       end = PosIndex[IDPhysio[i] + DiffIndex[i]]
+
+
+      
        print(DiffIndex[IDPhysio[i]])
        print(PosIndex[IDPhysio[i] + DiffIndex[i]])
        NEWMAP = NEWMAPDATA[PosIndex[IDPhysio[i]]:PosIndex[IDPhysio[i]+DiffIndex[i]]] = NA
