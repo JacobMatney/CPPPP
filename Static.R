@@ -140,7 +140,7 @@ PStatic_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
 
       
        print(start)
-      print(interval
+      print(interval)
        print(end)
     
       }
