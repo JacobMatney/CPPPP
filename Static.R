@@ -114,7 +114,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
 
     DtDf = data_frame(Dt = Dt, T = DtT)
 
-    dtMAP <<- ggplot(data = DtDf, aes(x = T, y = Dt) + 
+    dtMAP <<- ggplot(data = DtDf, aes(x = T, y = Dt)) + 
                      geom_line()
 
     
