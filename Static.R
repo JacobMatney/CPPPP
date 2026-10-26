@@ -109,7 +109,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
         
   }
 
-    Dt = pracma::gradient(Baseline_Dataset$CBFv)
+    Dt = pracma::gradient(Baseline_Dataset$reBAP)
     DtT = 1:length(Dt)
 
     DtDf = data_frame(Dt = Dt, T = DtT)
