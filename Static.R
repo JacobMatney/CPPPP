@@ -136,8 +136,10 @@ PStatic_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
 
 
       
-       print(DiffIndex[IDPhysio[i]])
-       print(PosIndex[IDPhysio[i] + DiffIndex[i]])
+       print(start)
+      print(DiffIndex[i])
+       print(end)
+      
        NEWMAP = NEWMAPDATA[PosIndex[IDPhysio[i]]:PosIndex[IDPhysio[i]+DiffIndex[i]]] = NA
        NEWMAPDATA = NEWMAP
       }
