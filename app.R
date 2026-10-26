@@ -287,6 +287,10 @@ server = function(input, output, session) {
         nav_select(id = "tabs", selected =  "ECG Signal") 
     })
 
+  observeEvent(input$runit, {
+        nav_select(id = "tabs", selected =  "Absolute Values") 
+    })
+
   B2B_1 = eventReactive(input$runit, {
     
     req(input$file$datapath, input$condition, input$Fs, input$gate)
