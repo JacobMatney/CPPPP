@@ -110,8 +110,12 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
   }
 
     Dt = pracma::gradient(Baseline_Dataset$CBFv)
+    DtT = 1:length of Dt
 
-    dtMAP <<- plot(x = 1:length(Dt), y = Dt, type = "line")
+    DtDf = data_frame(Dt = Dt, T = DtT)
+
+    dtMAP <<- ggplot(data = DtDf, aes(x = T, y = Dt) + 
+                     geom_line()
 
     
     # -----------------------------------------------------------------------------#
