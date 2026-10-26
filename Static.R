@@ -122,7 +122,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     dtMAP2 <<- ggplot(data = DtDf, aes(x = T, y = Dt)) + 
                      geom_line()
 
-    PosIdex <<- which(DfDt$Dt) < 0.5
+    PosIdex <<- which(DtDf$Dt) < 0.5
     
     # -----------------------------------------------------------------------------#
     # signal Processing                                                            #
