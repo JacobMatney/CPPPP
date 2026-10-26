@@ -128,10 +128,10 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
 
     IDPhysio <<- which(DiffIndex > (0.25 * f))
 
-    NEWMAPDATA <<- NULL
+    #NEWMAPDATA <<- NULL
     
     for (i in length(IDPhysio)) {
-       NEWMAPDATA = Baseline_Dataset$reBAP[PosIndex[IDPhysio[i]]:PosIndex[IDPhysio[i]]+DiffIndex[i]] = NA
+       NEWMAPDATA <<- Baseline_Dataset$reBAP[PosIndex[IDPhysio[i]]:PosIndex[IDPhysio[i]]+DiffIndex[i]] = NA
       }
 
 
