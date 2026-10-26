@@ -137,7 +137,7 @@ PStatic_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
        interval = DiffIndex[IDPhysio[i]]
        end = start + interval
 
-
+      print("UPDATE")
       
        print(start)
       print(interval)
