@@ -129,13 +129,14 @@ PStatic_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     DiffIndex <<- diff(PosIndex, lag = 1)
 
     #identify which peaks MUST be physiocal due to the difference being longer than 1/4 the sampling frequency.
-    IDPhysio <<- which(DiffIndex > (0.5 * f))
+    IDPhysio <<- which(DiffIndex > (0.4 * f))
 
     NEWMAPDATA = Baseline_Dataset$reBAP
     
     for (i in 1:length(IDPhysio)) {
        start = IDPhysio[i]
-       end = IDPhysio[i + DiffIndex[IDPhysio[i]]]
+      
+       end = IDPhysio[i] + DiffIndex[IDPhysio[i]]
 
 
       
