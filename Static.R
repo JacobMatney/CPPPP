@@ -131,7 +131,7 @@ PStatic_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     NEWMAPDATA = Baseline_Dataset$reBAP
     
     for (i in 1:length(IDPhysio)) {
-       start = PosIndex[IDPhysio[i]])
+       start = PosIndex[IDPhysio[i]]
        end = PosIndex[IDPhysio[i] + DiffIndex[i]]
 
 
