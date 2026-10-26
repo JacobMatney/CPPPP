@@ -131,6 +131,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     #identify which peaks MUST be physiocal due to the difference being longer than 1/4 the sampling frequency.
     IDPhysio <<- which(DiffIndex > (0.4 * f))
 
+    Data3 = Baseline_Data$reBAP
     
     for (i in 1:length(IDPhysio)) {
        start = PosIndex[IDPhysio[i]]
@@ -142,10 +143,12 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
        print(start)
       print(interval)
        print(end)
-    
+
+      Data3 = Data3[Data3[start]:Data3[end]] = NA
       }
 
-
+      Data3 <<- ggplot(aes(x = length(Data3), y = Data3)) + 
+      geom_line()
          
     # -----------------------------------------------------------------------------#
     # signal Processing                                                            #
