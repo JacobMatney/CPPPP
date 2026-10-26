@@ -65,7 +65,7 @@ ui = page_sidebar(
            numericInput("Fs", "Sample Frequency (Hz)", value= 1000) |>
              tooltip("Input the sampling frequency of your raw data (Hz)"),
           
-          actionButton("runit", "Analyze")),
+          actionButton("runit", "Detect")),
       
       card(card_header(strong("CrCP & RAP Analyzer")), 
            numericInput("HtCorrect", label = "Height Correction (cm)", value = 0) |>
