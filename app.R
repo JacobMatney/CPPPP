@@ -104,7 +104,7 @@ ui = page_sidebar(
   
   
   navset_bar(
-    
+    id = "tabs",
     
     nav_panel(
       "ECG Signal",
@@ -282,8 +282,10 @@ server = function(input, output, session) {
   session$onSessionEnded(function() {
     stopApp()
   })
-  
 
+  observeEvent(input$runit, {
+    updateNavsetBar(session, "tabs", "Beat Detection")
+    })
 
   B2B_1 = eventReactive(input$runit, {
     
