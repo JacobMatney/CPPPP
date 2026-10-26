@@ -287,7 +287,7 @@ server = function(input, output, session) {
         nav_select(id = "tabs", selected =  "ECG Signal") 
     })
 
-  observeEvent(input$runit, {
+  observeEvent(input$runit2, {
         nav_select(id = "tabs", selected =  "Absolute Values") 
     })
 
