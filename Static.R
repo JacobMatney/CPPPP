@@ -109,7 +109,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
         
   }
 
-    Dt = gradiant(Baseline_Dataset$CBFv)
+    Dt = pracma::gradient(Baseline_Dataset$CBFv)
 
     dtMAP <<- plot(x = 1:length(Dt), y = Dt, type = "line")
 
