@@ -147,8 +147,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
       Data3 = Data3[start:end] = NA
       }
 
-      Data3 <<- ggplot(aes(x = 1:length(Data3), y = Data3)) + 
-      geom_line()
+      Data3 <<- plot(x = 1:length(Data3), y = Data3, type = "line")
          
     # -----------------------------------------------------------------------------#
     # signal Processing                                                            #
