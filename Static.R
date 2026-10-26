@@ -124,7 +124,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
 
     PosIndex <<- which(DtDf$Dt > 0.5)
 
-    DiffIndex = diff(PostIndex, lag = 1)
+    DiffIndex = diff(PosIndex, lag = 1)
     
     # -----------------------------------------------------------------------------#
     # signal Processing                                                            #
