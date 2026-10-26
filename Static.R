@@ -271,7 +271,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     BaseT = seq(min(CrCPCorrectBase$Time), max(CrCPCorrectBase$Time), by = .2)
     
     
-    BaseResampled <<- data.frame(CrCP = spline(CrCPCorrectBase$Time, CrCPCorrectBase$CrCP, xout = BaseT)$y, 
+    BaseResampled <<- data.frame(CrCP = approx(CrCPCorrectBase$Time, CrCPCorrectBase$CrCP, xout = BaseT)$y, 
                                RAP = spline(CrCPCorrectBase$Time, CrCPCorrectBase$RAP, xout = BaseT)$y, 
                                CVCi = spline(CrCPCorrectBase$Time, CrCPCorrectBase$CVCi, xout = BaseT)$y,
                                MAP = spline(CrCPCorrectBase$Time, CrCPCorrectBase$MAP, xout = BaseT)$y, 
@@ -424,7 +424,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     #---- Resample data at 5 hz ---- 
     StressT = seq(min(CrCPCorrectStress$Time), max(CrCPCorrectStress$Time), by = .2)
     
-    StressResampled = data.frame(CrCP = approx(CrCPCorrectStress$Time, CrCPCorrectStress$CrCP, xout = StressT)$y, 
+    StressResampled = data.frame(CrCP = spline(CrCPCorrectStress$Time, CrCPCorrectStress$CrCP, xout = StressT)$y, 
                                  RAP = spline(CrCPCorrectStress$Time, CrCPCorrectStress$RAP, xout = StressT)$y, 
                                  CVCi = spline(CrCPCorrectStress$Time, CrCPCorrectStress$CVCi, xout = StressT)$y,
                                  MAP = spline(CrCPCorrectStress$Time, CrCPCorrectStress$MAP, xout = StressT)$y,
