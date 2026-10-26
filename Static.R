@@ -131,6 +131,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     NEWMAPDATA = Baseline_Dataset$reBAP
     
     for (i in length(IDPhysio)) {
+       print(NEWMAPDATA[PosIndex[IDPhysio[i]]:PosIndex[IDPhysio[i]]+DiffIndex[i]])
        NEWMAP = NEWMAPDATA[PosIndex[IDPhysio[i]]:PosIndex[IDPhysio[i]]+DiffIndex[i]] = NA
        NEWMAPDATA = NEWMAP
       }
