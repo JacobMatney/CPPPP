@@ -122,7 +122,9 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     dtMAP2 <<- ggplot(data = DtDf, aes(x = T, y = Dt)) + 
                      geom_line()
 
-    PosIdex <<- which(DtDf$Dt > 0.5)
+    PosIndex <<- which(DtDf$Dt > 0.5)
+
+    DiffIndex = diff(PostIndex, lag = 1)
     
     # -----------------------------------------------------------------------------#
     # signal Processing                                                            #
