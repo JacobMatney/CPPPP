@@ -147,8 +147,8 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
       Data3 = Data3[start:end] = NA
       }
 
-      Data3vec = Data3
-      Data3Plot <<- plot(x = 1:length(Data3vec), y = Data3vec, type = "l")
+      Data3vec <<- Data3
+   
          
     # -----------------------------------------------------------------------------#
     # signal Processing                                                            #
