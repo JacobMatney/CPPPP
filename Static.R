@@ -112,7 +112,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     Dt = pracma::gradient(Baseline_Dataset$reBAP)
     DtT = 1:length(Dt)
 
-    DtDf = data_frame(Dt = Dt, T = DtT)
+    DtDf <<- data_frame(Dt = Dt, T = DtT)
 
     dtMAP <<- ggplot(data = DtDf, aes(x = T, y = Dt)) + 
                      geom_line()
