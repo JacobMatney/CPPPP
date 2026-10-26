@@ -127,7 +127,13 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     DiffIndex <<- diff(which(DtDf$Dt > 0.5), lag = 1)
 
     IDPhysio <<- which(DiffIndex > (0.25 * f))
-    
+
+    for (i in length(IDPhysio)) {
+       NEWMAPDATA <<- Baseline_Dataset$reBAP[PosIndex[IDPysio[i]]:PosIndex[IDPysio[i]]+DiffIndex[i]] = NA
+      }
+
+
+         
     # -----------------------------------------------------------------------------#
     # signal Processing                                                            #
     # -----------------------------------------------------------------------------#
