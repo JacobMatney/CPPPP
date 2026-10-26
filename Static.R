@@ -272,14 +272,14 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     
     
     BaseResampled <<- data.frame(CrCP = approx(CrCPCorrectBase$Time, CrCPCorrectBase$CrCP, xout = BaseT)$y, 
-                               RAP = spline(CrCPCorrectBase$Time, CrCPCorrectBase$RAP, xout = BaseT)$y, 
-                               CVCi = spline(CrCPCorrectBase$Time, CrCPCorrectBase$CVCi, xout = BaseT)$y,
-                               MAP = spline(CrCPCorrectBase$Time, CrCPCorrectBase$MAP, xout = BaseT)$y, 
-                               CPP = spline(CrCPCorrectBase$Time, CrCPCorrectBase$CPP, xout = BaseT)$y,
-                               CPI = spline(CrCPCorrectBase$Time, CrCPCorrectBase$CPI, xout = BaseT)$y,
-                               PETCO2 = spline(CrCPCorrectBase$Time, CrCPCorrectBase$PETCO2, xout = BaseT)$y,
-                               MCAv = spline(CrCPCorrectBase$Time, CrCPCorrectBase$MCAv, xout = BaseT)$y,
-                               Check = spline(CrCPCorrectBase$Time, CrCPCorrectBase$Check, xout = BaseT)$y,
+                               RAP = approx(CrCPCorrectBase$Time, CrCPCorrectBase$RAP, xout = BaseT)$y, 
+                               CVCi = approx(CrCPCorrectBase$Time, CrCPCorrectBase$CVCi, xout = BaseT)$y,
+                               MAP = approx(CrCPCorrectBase$Time, CrCPCorrectBase$MAP, xout = BaseT)$y, 
+                               CPP = approx(CrCPCorrectBase$Time, CrCPCorrectBase$CPP, xout = BaseT)$y,
+                               CPI = approx(CrCPCorrectBase$Time, CrCPCorrectBase$CPI, xout = BaseT)$y,
+                               PETCO2 = approx(CrCPCorrectBase$Time, CrCPCorrectBase$PETCO2, xout = BaseT)$y,
+                               MCAv = approx(CrCPCorrectBase$Time, CrCPCorrectBase$MCAv, xout = BaseT)$y,
+                               Check = approx(CrCPCorrectBase$Time, CrCPCorrectBase$Check, xout = BaseT)$y,
                                Time = BaseT)
     
     
