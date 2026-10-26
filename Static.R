@@ -134,8 +134,8 @@ PStatic_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     
     for (i in 1:length(IDPhysio)) {
        start = PosIndex[IDPhysio[i]]
-      
-       end = start + DiffIndex[IDPhysio[i]]
+       interval = DiffIndex[IDPhysio[i]]
+       end = start + interval
 
 
       
