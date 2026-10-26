@@ -106,6 +106,11 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
       s.Miss.interval.end <<- StressMiss_Index[c(s.Miss.interval, length(StressMiss_Index))]
         S.Miss.DF <<- data.frame(Start = s.Miss.interval.start, 
                                 End = s.Miss.interval.end)
+
+
+    Dt = gradiant(Baseline_Dataset$CBFv)
+
+    dtMAP <<- plot(x = 1:length(Dt), y = Dt, type = "line")
         
   }
     # -----------------------------------------------------------------------------#
