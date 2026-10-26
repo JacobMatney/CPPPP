@@ -132,7 +132,8 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     
     for (i in 1:length(IDPhysio)) {
        print(PosIndex[IDPhysio[i]])
-       print(PosIndex[IDPhysio[i]+DiffIndex[i]])
+       print(DiffIndex[i])
+       print(PosIndex[IDPhysio[i+DiffIndex[i]]])
        NEWMAP = NEWMAPDATA[PosIndex[IDPhysio[i]]:PosIndex[IDPhysio[i]+DiffIndex[i]]] = NA
        NEWMAPDATA = NEWMAP
       }
