@@ -424,15 +424,15 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     #---- Resample data at 5 hz ---- 
     StressT = seq(min(CrCPCorrectStress$Time), max(CrCPCorrectStress$Time), by = .2)
     
-    StressResampled = data.frame(CrCP = spline(CrCPCorrectStress$Time, CrCPCorrectStress$CrCP, xout = StressT)$y, 
-                                 RAP = spline(CrCPCorrectStress$Time, CrCPCorrectStress$RAP, xout = StressT)$y, 
-                                 CVCi = spline(CrCPCorrectStress$Time, CrCPCorrectStress$CVCi, xout = StressT)$y,
-                                 MAP = spline(CrCPCorrectStress$Time, CrCPCorrectStress$MAP, xout = StressT)$y,
-                                 CPP = spline(CrCPCorrectStress$Time,CrCPCorrectStress$CPP, xout = StressT)$y,
-                                 CPI = spline(CrCPCorrectStress$Time, CrCPCorrectStress$CPI, xout = StressT)$y,
-                                 PETCO2 = spline(CrCPCorrectStress$Time, CrCPCorrectStress$PETCO2, xout = StressT)$y,
-                                 MCAv = spline(CrCPCorrectStress$Time,CrCPCorrectStress$MCAv, xout = StressT)$y,
-                                 Check = spline(CrCPCorrectStress$Time, CrCPCorrectStress$Check, xout = StressT)$y,
+    StressResampled = data.frame(CrCP = approx(CrCPCorrectStress$Time, CrCPCorrectStress$CrCP, xout = StressT)$y, 
+                                 RAP = approx(CrCPCorrectStress$Time, CrCPCorrectStress$RAP, xout = StressT)$y, 
+                                 CVCi = approx(CrCPCorrectStress$Time, CrCPCorrectStress$CVCi, xout = StressT)$y,
+                                 MAP = approx(CrCPCorrectStress$Time, CrCPCorrectStress$MAP, xout = StressT)$y,
+                                 CPP = approx(CrCPCorrectStress$Time,CrCPCorrectStress$CPP, xout = StressT)$y,
+                                 CPI = approx(CrCPCorrectStress$Time, CrCPCorrectStress$CPI, xout = StressT)$y,
+                                 PETCO2 = approx(CrCPCorrectStress$Time, CrCPCorrectStress$PETCO2, xout = StressT)$y,
+                                 MCAv = approx(CrCPCorrectStress$Time,CrCPCorrectStress$MCAv, xout = StressT)$y,
+                                 Check = approx(CrCPCorrectStress$Time, CrCPCorrectStress$Check, xout = StressT)$y,
                                  Time = StressT)
     
     # -----------------------------------------------------------------------------#
