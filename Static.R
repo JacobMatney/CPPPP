@@ -117,7 +117,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     dtMAP <<- ggplot(data = DtDf, aes(x = T, y = Dt)) + 
                      geom_line()
 
-    DtDf$Dt[DtDf < 0.1] = NA
+    DtDf$Dt[DtDf < 0.1] = 0
 
     dtMAP2 <<- ggplot(data = DtDf, aes(x = T, y = Dt)) + 
                      geom_line()
