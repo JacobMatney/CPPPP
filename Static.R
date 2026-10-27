@@ -150,6 +150,8 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
       }
 
       Data3vec <<- Data3
+
+     Baseline_Dataset$reBAP = Data3
    
          
     # -----------------------------------------------------------------------------#
