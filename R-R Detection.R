@@ -178,7 +178,9 @@ S.Peak_Plot = ggplotly(S.Peak_Plot) %>%
 return(list(Base.Plot = B.Peak_Plot, 
             Stim.Plot = S.Peak_Plot, 
             Baseline.Data = Dataset_Base, 
-            Stim.Data = Dataset_Stim)
+            Stim.Data = Dataset_Stim,
+            Base.HRest = B_estHR, 
+            Stim.HRest = S_estHR)
 )
 
 incProgress(amount = 0.01)
