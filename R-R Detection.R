@@ -82,7 +82,7 @@ Dataset_Base$Beat_Num[B.Peaks$X2] = "beat"
 
   ECGt <<- length(Dataset_Base$ECG) / Fs
   beatnum <<- length(B.Peaks$X2)
-  multi <<- ECGt / 60
+  multi <<- 60 / ECGt
   
 B_estHR <<- beatnum * multi
 
