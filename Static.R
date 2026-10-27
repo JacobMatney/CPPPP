@@ -115,7 +115,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     DiffIndex <<- diff(PosIndex, lag = 1)
 
     #identify which peaks MUST be physiocal due to the difference being longer than 1 * the sampling frequency.
-    IDPhysio <<- which(DiffIndex > (.8 * f))
+    IDPhysio <<- which(DiffIndex > (.6 * f))
 
     #Assign the baseline dataset.
     Data3 = Baseline_Dataset$reBAP
