@@ -91,7 +91,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
   # Baseline --------------------------
   
     #Calculate first derivative to identify where slope are flat. 
-    Dt = pracma::gradient(Baseline_Dataset$reBAP)
+    Dt = (pracma::gradient(Baseline_Dataset$reBAP))^2
 
   #make a dataframe of first derivative and timescale. 
     DtT = 1:length(Dt)
