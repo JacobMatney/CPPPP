@@ -79,8 +79,10 @@ B.Peaks = data.frame(
 #Set Beat Num to "Beat" based on index of R wave. 
 Dataset_Base$Beat_Num[B.Peaks$X2] = "beat"
 
-  
-B_estHR <<- (length(Dataset_Base$ECG) / Fs) / length(B.Peaks$X2)
+
+  ECGt <<- length(Dataset_Base$ECG) / Fs
+  beatnum <<- length(B.Peaks$X2)
+B_estHR <<- ((length(Dataset_Base$ECG) / Fs) / length(B.Peaks$X2)) 
 
 
 incProgress(amount = 0.25)
