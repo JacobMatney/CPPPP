@@ -144,7 +144,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
       print(interval)
        print(end)
 
-      Data3 = Data3[start:end] = NA
+      Data3 = Data3[start:end] <- NA
       }
 
       Data3vec <<- Data3
