@@ -127,6 +127,9 @@ Dataset_Stim$Beat_Num[S.Peaks$X2] = "beat"
 #Pan5 <<- plot(x = 1:length(B.Move.Av.ECG[1:10000]), y = B.Move.Av.ECG[1:10000], type = "l", xaxt = "n", yaxt = "n", ann = FALSE, bty = "n")
 #-------------------------------
 
+B_estHR <<- (length(Dataset_Base$ECG) / Fs) / (sum(grepl("beat", Dataset_Base$Beat_Num)))
+
+  
 #---- Create plots ---- 
 B.Peak_Plot = ggplot(FINALB, aes(x = Time, y = ECG)) + 
   geom_line() +
