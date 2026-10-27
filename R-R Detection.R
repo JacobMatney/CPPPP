@@ -84,7 +84,7 @@ Dataset_Base$Beat_Num[B.Peaks$X2] = "beat"
   beatnum <<- length(B.Peaks$X2)
   multi <<- ECGt / 60
   
-B_estHR <<- ((length(Dataset_Base$ECG) / Fs) / length(B.Peaks$X2)) / multi
+B_estHR <<- ((length(Dataset_Base$ECG) / Fs) / length(B.Peaks$X2)) * multi
 
 
 incProgress(amount = 0.25)
