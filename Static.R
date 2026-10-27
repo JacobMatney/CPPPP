@@ -118,7 +118,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     dtMAP <<- ggplot(data = DtDf, aes(x = T, y = Dt)) + 
                      geom_line()
 
-    DtDf$Dt[DtDf$Dt < .75] = 0
+    DtDf$Dt[DtDf$Dt < 0.6] = 0
 
     dtMAP2 <<- ggplot(data = DtDf, aes(x = T, y = Dt)) + 
                      geom_line()
@@ -130,7 +130,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     DiffIndex <<- diff(PosIndex, lag = 1)
 
     #identify which peaks MUST be physiocal due to the difference being longer than 1/4 the sampling frequency.
-    IDPhysio <<- which(DiffIndex > (0.1 * f))
+    IDPhysio <<- which(DiffIndex > (1 * f))
 
     Data3 = Baseline_Dataset$reBAP
     
