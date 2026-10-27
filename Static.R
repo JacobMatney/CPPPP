@@ -175,7 +175,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     SData3 = Stressor_Dataset$reBAP
 
     #For Debugging purposes.
-    ForPlot <<- Stressor_Dataset$reBAP  
+    SForPlot <<- Stressor_Dataset$reBAP  
 
     #for each point where physiocal is detected, replace data with NA over the determined physiocal range.
     for (i in 1:length(SIDPhysio)) {
