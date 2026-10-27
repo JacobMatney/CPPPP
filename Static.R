@@ -86,28 +86,6 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     Baseline_Dataset$Time = (1:length(Baseline_Dataset$Beat_Num)) * Fs
     Stressor_Dataset$Time = (1:length(Stressor_Dataset$Beat_Num)) * Fs
     
-    B.NA = anyNA(Baseline_Dataset$reBAP)
-    S.NA = anyNA(Stressor_Dataset$reBAP)
-    
-  if (B.NA == T) { 
-    BaseMiss_Index <<- Baseline_Dataset$Time[is.na(Baseline_Dataset$reBAP)]
-      B.Miss.interval <<-  which(diff(BaseMiss_Index) > 0.0015)
-      B.Miss.interval.start <<-  BaseMiss_Index[c(1, B.Miss.interval + 1)]
-      B.Miss.interval.end <<- BaseMiss_Index[c(B.Miss.interval, length(BaseMiss_Index))]
-        B.Miss.DF <<- data.frame(Start = B.Miss.interval.start, 
-                               End = B.Miss.interval.end)
-        
-  }
-    
-  if (S.NA == T) {
-    StressMiss_Index <<- Stressor_Dataset$Time[is.na(Stressor_Dataset$reBAP)]
-      s.Miss.interval <<-  which(diff(StressMiss_Index) > 0.0015)
-      s.Miss.interval.start <<-  StressMiss_Index[c(1, s.Miss.interval + 1)]
-      s.Miss.interval.end <<- StressMiss_Index[c(s.Miss.interval, length(StressMiss_Index))]
-        S.Miss.DF <<- data.frame(Start = s.Miss.interval.start, 
-                                End = s.Miss.interval.end)
-        
-  }
 
   #---- Identify blood pressure calibration signal and move the data. ----
     Dt = pracma::gradient(Baseline_Dataset$reBAP)
@@ -134,6 +112,34 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
 
     Data3 = Baseline_Dataset$reBAP
     ForPlot <<- Baseline_Dataset$reBAP
+
+
+    B.NA = anyNA(Baseline_Dataset$reBAP)
+    S.NA = anyNA(Stressor_Dataset$reBAP)
+
+    
+    if (B.NA == T) { 
+    BaseMiss_Index <<- Baseline_Dataset$Time[is.na(Baseline_Dataset$reBAP)]
+      B.Miss.interval <<-  which(diff(BaseMiss_Index) > 0.0015)
+      B.Miss.interval.start <<-  BaseMiss_Index[c(1, B.Miss.interval + 1)]
+      B.Miss.interval.end <<- BaseMiss_Index[c(B.Miss.interval, length(BaseMiss_Index))]
+        B.Miss.DF <<- data.frame(Start = B.Miss.interval.start, 
+                               End = B.Miss.interval.end)
+        
+  }
+    
+    if (S.NA == T) {
+    StressMiss_Index <<- Stressor_Dataset$Time[is.na(Stressor_Dataset$reBAP)]
+      s.Miss.interval <<-  which(diff(StressMiss_Index) > 0.0015)
+      s.Miss.interval.start <<-  StressMiss_Index[c(1, s.Miss.interval + 1)]
+      s.Miss.interval.end <<- StressMiss_Index[c(s.Miss.interval, length(StressMiss_Index))]
+        S.Miss.DF <<- data.frame(Start = s.Miss.interval.start, 
+                                End = s.Miss.interval.end)
+        
+  }
+
+
+    
     
     for (i in 1:length(IDPhysio)) {
        start = PosIndex[IDPhysio[i]]
