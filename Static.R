@@ -116,7 +116,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     DiffIndex <<- diff(PosIndex, lag = 1)
 
     #identify which peaks MUST be physiocal due to the difference being longer than 1 * the sampling frequency.
-    IDPhysio <<- which(DiffIndex > (.8 * f))
+    IDPhysio <<- which(DiffIndex > (1 * f))
 
     #Assign the baseline dataset.
     Data3 = Baseline_Dataset$reBAP
@@ -124,6 +124,8 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     #For Debugging purposes.
     ForPlot <<- Baseline_Dataset$reBAP  
 
+
+    if (IDPhysio != NULL) { 
     #for each point where physiocal is detected, replace data with NA over the determined physiocal range.
     for (i in 1:length(IDPhysio)) {
        start = PosIndex[IDPhysio[i]]
@@ -143,7 +145,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
 
     #replace original reBAP with new corrected data. 
      Baseline_Dataset$reBAP = Data3
-
+}
 
 # Stressor --------------------------
   #Calculate first derivative to identify where slope are flat. 
