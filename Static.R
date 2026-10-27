@@ -150,6 +150,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
 # Stressor --------------------------
   #Calculate first derivative to identify where slope are flat. 
     SDt = pracma::gradient(Stressor_Dataset$reBAP)
+    SDt = abs(SDt)
     
   #make a dataframe of first derivative and timescale. 
     SDtT = 1:length(SDt)
@@ -160,20 +161,20 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
                      geom_line()
 
     #turn any data that shows a derivative less than 0.6 to 0.
-    SDtDf$Dt[SDtDf$Dt < 0.6] = 0
+    SDtDf$Dt[SDtDf$Dt (max(DtDf$Dt) * 0.1)] = 0
 
     #Debugging purposes
     #dtMAP2 <<- ggplot(data = SDtDf, aes(x = T, y = Dt)) + 
                      geom_line()
 
     #identify which index in dt dataframe is above threshold (identify peaks). 
-    SPosIndex <<- which(SDtDf$Dt > 0.5)
+    SPosIndex <<- which(SDtDf$Dt > (max(DtDf$Dt) * 0.5))
 
     #identify the distance between each peak in the derivative.
     SDiffIndex <<- diff(SPosIndex, lag = 1)
 
     #identify which peaks MUST be physiocal due to the difference being longer than 1 * the sampling frequency.
-    SIDPhysio <<- which(SDiffIndex > (1 * f))
+    SIDPhysio <<- which(SDiffIndex > (1.5 * f))
 
     #Assign the baseline dataset.
     SData3 = Stressor_Dataset$reBAP
@@ -181,6 +182,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     #For Debugging purposes.
     SForPlot <<- Stressor_Dataset$reBAP  
 
+     if (length(SIDPhysio) > 0) {
     #for each point where physiocal is detected, replace data with NA over the determined physiocal range.
     for (i in 1:length(SIDPhysio)) {
        start = SPosIndex[SIDPhysio[i]]
@@ -194,6 +196,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
 
       SData3[start:end] = NA
       }
+    }
 
       #for debugging purposes
       SData3vec <<- SData3
