@@ -133,6 +133,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     IDPhysio <<- which(DiffIndex > (1 * f))
 
     Data3 = Baseline_Dataset$reBAP
+    ForPlot <<- Baseline_Dataset$reBAP
     
     for (i in 1:length(IDPhysio)) {
        start = PosIndex[IDPhysio[i]]
