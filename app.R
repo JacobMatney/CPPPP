@@ -313,7 +313,7 @@ server = function(input, output, session) {
     req(input$file$datapath, input$Av_Interval, input$Base_Av_Interval, input$Stim_Av_Interval, input$Av_Interval_2, input$HtCorrect, input$condition, input$Fs, input$HtConst)
     
     Static_Func(input$file$datapath, input$Av_Interval, input$Base_Av_Interval, input$Stim_Av_Interval, input$Av_Interval_2, 
-                    input$HtCorrect, B2B_1()$Baseline.Data, B2B_1()$Stim.Data, input$Fs, input$HtConst)
+                    input$HtCorrect, B2B_1()$Baseline.Data, B2B_1()$Stim.Data, input$Fs, input$HtConst, B2B_1()$Base.HRest, B2B_1()$Stim.HRest)
     
     
   })
