@@ -87,50 +87,128 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     Stressor_Dataset$Time = (1:length(Stressor_Dataset$Beat_Num)) * Fs
     
 
-  #---- Identify blood pressure calibration signal and move the data. ----
+  #---- Identify blood pressure calibration signal and remove the data. ----
+  # Baseline --------------------------
+  #Calculate first derivative to identify where slope are flat. 
     Dt = pracma::gradient(Baseline_Dataset$reBAP)
+    
+  #make a dataframe of first derivative and timescale. 
     DtT = 1:length(Dt)
-
     DtDf <<- data_frame(Dt = Dt, T = DtT)
 
-    dtMAP <<- ggplot(data = DtDf, aes(x = T, y = Dt)) + 
+    # Debugging purposes.
+    #dtMAP <<- ggplot(data = DtDf, aes(x = T, y = Dt)) + 
                      geom_line()
 
+    #turn any data that shows a derivative less than 0.6 to 0.
     DtDf$Dt[DtDf$Dt < 0.6] = 0
 
-    dtMAP2 <<- ggplot(data = DtDf, aes(x = T, y = Dt)) + 
+    #Debugging purposes
+    #dtMAP2 <<- ggplot(data = DtDf, aes(x = T, y = Dt)) + 
                      geom_line()
 
-    #identify which index is above threshold. 
+    #identify which index in dt dataframe is above threshold (identify peaks). 
     PosIndex <<- which(DtDf$Dt > 0.5)
 
-    #identify the distance between each peak.
+    #identify the distance between each peak in the derivative.
     DiffIndex <<- diff(PosIndex, lag = 1)
 
-    #identify which peaks MUST be physiocal due to the difference being longer than 1/4 the sampling frequency.
+    #identify which peaks MUST be physiocal due to the difference being longer than 1 * the sampling frequency.
     IDPhysio <<- which(DiffIndex > (1 * f))
 
+    #Assign the baseline dataset.
     Data3 = Baseline_Dataset$reBAP
+
+    #For Debugging purposes.
     ForPlot <<- Baseline_Dataset$reBAP  
-    
+
+    #for each point where physiocal is detected, replace data with NA over the determined physiocal range.
     for (i in 1:length(IDPhysio)) {
        start = PosIndex[IDPhysio[i]]
        interval = DiffIndex[IDPhysio[i]]
        end = start + interval
 
-      print("UPDATE")
-      
-       print(start)
-      print(interval)
-       print(end)
+      # for debugging
+       #print(start)
+       #print(interval)
+       #print(end)
 
       Data3[start:end] = NA
       }
 
-      Data3vec <<- Data3
+      #for debugging purposes
+      #Data3vec <<- Data3
 
+    #replace original reBAP with new corrected data. 
      Baseline_Dataset$reBAP = Data3
 
+
+# Baseline --------------------------
+  #Calculate first derivative to identify where slope are flat. 
+    SDt = pracma::gradient(Stressor_Dataset$reBAP)
+    
+  #make a dataframe of first derivative and timescale. 
+    SDtT = 1:length(SDt)
+    SDtDf <<- data_frame(Dt = SDt, T = SDtT)
+
+    # Debugging purposes.
+    #SdtMAP <<- ggplot(data = SDtDf, aes(x = T, y = Dt)) + 
+                     geom_line()
+
+    #turn any data that shows a derivative less than 0.6 to 0.
+    SDtDf$Dt[SDtDf$Dt < 0.6] = 0
+
+    #Debugging purposes
+    #dtMAP2 <<- ggplot(data = SDtDf, aes(x = T, y = Dt)) + 
+                     geom_line()
+
+    #identify which index in dt dataframe is above threshold (identify peaks). 
+    SPosIndex <<- which(SDtDf$Dt > 0.5)
+
+    #identify the distance between each peak in the derivative.
+    SDiffIndex <<- diff(SPosIndex, lag = 1)
+
+    #identify which peaks MUST be physiocal due to the difference being longer than 1 * the sampling frequency.
+    SIDPhysio <<- which(SDiffIndex > (1 * f))
+
+    #Assign the baseline dataset.
+    SData3 = Stressor_Dataset$reBAP
+
+    #For Debugging purposes.
+    ForPlot <<- Stressor_Dataset$reBAP  
+
+    #for each point where physiocal is detected, replace data with NA over the determined physiocal range.
+    for (i in 1:length(SIDPhysio)) {
+       start = SPosIndex[SIDPhysio[i]]
+       interval = SDiffIndex[SIDPhysio[i]]
+       end = start + interval
+
+      # for debugging
+       #print(start)
+       #print(interval)
+       #print(end)
+
+      SData3[start:end] = NA
+      }
+
+      #for debugging purposes
+      #Data3vec <<- SData3
+
+    #replace original reBAP with new corrected data. 
+    Stressor_Dataset$reBAP = SData3
+
+
+
+
+
+
+
+
+
+
+
+
+    
     B.NA = anyNA(Baseline_Dataset$reBAP)
     S.NA = anyNA(Stressor_Dataset$reBAP)
 
