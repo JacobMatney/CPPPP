@@ -103,7 +103,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
                      geom_line()
 
     #turn any data that shows a derivative less than 0.6 to 0.
-    DtDf$Dt[DtDf$Dt < 0.6] = 0
+    DtDf$Dt[DtDf$Dt < 0.5] = 0
 
     #Debugging purposes
     #dtMAP2 <<- ggplot(data = DtDf, aes(x = T, y = Dt)) + 
