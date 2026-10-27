@@ -111,8 +111,25 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     IDPhysio <<- which(DiffIndex > (1 * f))
 
     Data3 = Baseline_Dataset$reBAP
-    ForPlot <<- Baseline_Dataset$reBAP
+    ForPlot <<- Baseline_Dataset$reBAP  
+    
+    for (i in 1:length(IDPhysio)) {
+       start = PosIndex[IDPhysio[i]]
+       interval = DiffIndex[IDPhysio[i]]
+       end = start + interval
 
+      print("UPDATE")
+      
+       print(start)
+      print(interval)
+       print(end)
+
+      Data3[start:end] = NA
+      }
+
+      Data3vec <<- Data3
+
+     Baseline_Dataset$reBAP = Data3
 
     B.NA = anyNA(Baseline_Dataset$reBAP)
     S.NA = anyNA(Stressor_Dataset$reBAP)
@@ -137,27 +154,6 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
                                 End = s.Miss.interval.end)
         
   }
-
-
-    
-    
-    for (i in 1:length(IDPhysio)) {
-       start = PosIndex[IDPhysio[i]]
-       interval = DiffIndex[IDPhysio[i]]
-       end = start + interval
-
-      print("UPDATE")
-      
-       print(start)
-      print(interval)
-       print(end)
-
-      Data3[start:end] = NA
-      }
-
-      Data3vec <<- Data3
-
-     Baseline_Dataset$reBAP = Data3
    
          
     # -----------------------------------------------------------------------------#
