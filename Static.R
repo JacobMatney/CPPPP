@@ -103,14 +103,14 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
                      geom_line()
 
     #turn any data that shows a derivative less than 0.6 to 0.
-    DtDf$Dt[DtDf$Dt < (max(DtDf$Dt) * 0.25)] = 0
+    DtDf$Dt[DtDf$Dt < (max(DtDf$Dt) * 0.1)] = 0
 
     #Debugging purposes
     #dtMAP2 <<- ggplot(data = DtDf, aes(x = T, y = Dt)) + 
                      geom_line()
 
     #identify which index in dt dataframe is above threshold (identify peaks). 
-    PosIndex <<- which(DtDf$Dt > 0.6)
+    PosIndex <<- which(DtDf$Dt > (max(DtDf$Dt) * 0.5))
 
     #identify the distance between each peak in the derivative.
     DiffIndex <<- diff(PosIndex, lag = 1)
