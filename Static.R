@@ -116,7 +116,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL, HrB, HrS) {
     DiffIndex <<- diff(PosIndex, lag = 1)
 
     #identify which peaks MUST be physiocal due to the difference being longer than 1 * the sampling frequency.
-    IDPhysio <<- which(DiffIndex > (1 * f) * (1 / HrS))
+    IDPhysio <<- which(DiffIndex > ((1 * f) * (1 / HrB)))
 
     #Assign the baseline dataset.
     Data3 = Baseline_Dataset$reBAP
@@ -174,7 +174,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL, HrB, HrS) {
     SDiffIndex <<- diff(SPosIndex, lag = 1)
 
     #identify which peaks MUST be physiocal due to the difference being longer than 1 * the sampling frequency.
-    SIDPhysio <<- which(SDiffIndex > ((1 * f) * (1 / HrS)) 
+    SIDPhysio <<- which(SDiffIndex > ((1 * f) * (1 / HrS))) 
 
     #Assign the baseline dataset.
     SData3 = Stressor_Dataset$reBAP
