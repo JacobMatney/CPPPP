@@ -79,6 +79,10 @@ B.Peaks = data.frame(
 #Set Beat Num to "Beat" based on index of R wave. 
 Dataset_Base$Beat_Num[B.Peaks$X2] = "beat"
 
+  
+B_estHR <<- (length(Dataset_Base$ECG) / Fs) / length(B.Peaks$X2)
+
+
 incProgress(amount = 0.25)
 #------------------------------------------
 # For Stim data, find QRS peaks using
@@ -126,9 +130,6 @@ Dataset_Stim$Beat_Num[S.Peaks$X2] = "beat"
 #Pan4 <<- plot(x = 1:length(B.Sqr.ECG[1:10000]), y = B.Sqr.ECG[1:10000], type = "l", xaxt = "n", yaxt = "n", ann = FALSE, bty = "n")
 #Pan5 <<- plot(x = 1:length(B.Move.Av.ECG[1:10000]), y = B.Move.Av.ECG[1:10000], type = "l", xaxt = "n", yaxt = "n", ann = FALSE, bty = "n")
 #-------------------------------
-
-B_estHR <<- (length(Dataset_Base$ECG) / Fs) / (sum(grepl("beat", Dataset_Base$Beat_Num)))
-
   
 #---- Create plots ---- 
 B.Peak_Plot = ggplot(FINALB, aes(x = Time, y = ECG)) + 
