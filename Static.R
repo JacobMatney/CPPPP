@@ -139,13 +139,13 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
 
       Data3[start:end] = NA
       }
-
+}
       #for debugging purposes
       Data3vec <<- Data3
 
     #replace original reBAP with new corrected data. 
      Baseline_Dataset$reBAP = Data3
-}
+
 
 # Stressor --------------------------
   #Calculate first derivative to identify where slope are flat. 
