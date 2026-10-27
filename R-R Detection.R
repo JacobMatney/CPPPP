@@ -126,6 +126,12 @@ incProgress(amount = 0.25)
 #Set Beat Num to "Beat" based on index of R wave. 
 Dataset_Stim$Beat_Num[S.Peaks$X2] = "beat"
 
+  ECGt <<- length(Dataset_Stim$ECG) / Fs
+  beatnum <<- length(S.Peaks$X2)
+  multi <<- 60 / ECGt
+  
+S_estHR <<- beatnum * multi
+
 #---- For debugging, ignore ---- 
 #write_xlsx(Dataset_Base, "Data.xlsx")
 #Pan1 <<- plot(x = 1:length(B.Raw.ECG[1:10000]), y = B.Raw.ECG[1:10000], type = "l", xaxt = "n", yaxt = "n", ann = FALSE, bty = "n")
