@@ -106,7 +106,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     DtDf$Dt[DtDf$Dt < (max(DtDf$Dt) * 0.1)] = 0
 
     #Debugging purposes
-    #dtMAP2 <<- ggplot(data = DtDf, aes(x = T, y = Dt)) + 
+    dtMAP2 <<- ggplot(data = DtDf, aes(x = T, y = Dt)) + 
                      geom_line()
 
     #identify which index in dt dataframe is above threshold (identify peaks). 
