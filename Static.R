@@ -116,7 +116,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     DiffIndex <<- diff(PosIndex, lag = 1)
 
     #identify which peaks MUST be physiocal due to the difference being longer than 1 * the sampling frequency.
-    IDPhysio <<- which(DiffIndex > (1 * f))
+    IDPhysio <<- which(DiffIndex > (1.5 * f))
 
     #Assign the baseline dataset.
     Data3 = Baseline_Dataset$reBAP
@@ -125,7 +125,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
     ForPlot <<- Baseline_Dataset$reBAP  
 
 
-    if (IDPhysio != NULL) { 
+    if (length(IDPhysio) > 0) { 
     #for each point where physiocal is detected, replace data with NA over the determined physiocal range.
     for (i in 1:length(IDPhysio)) {
        start = PosIndex[IDPhysio[i]]
