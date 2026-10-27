@@ -137,7 +137,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
       }
 
       #for debugging purposes
-      #Data3vec <<- Data3
+      Data3vec <<- Data3
 
     #replace original reBAP with new corrected data. 
      Baseline_Dataset$reBAP = Data3
