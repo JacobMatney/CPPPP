@@ -92,7 +92,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
   
     #Calculate first derivative to identify where slope are flat. 
     Dt = pracma::gradient(Baseline_Dataset$reBAP)
-  Dt = Dt^2
+  #Dt = Dt^2
   #make a dataframe of first derivative and timescale. 
     DtT = 1:length(Dt)
     DtDf <<- data_frame(Dt = Dt, T = DtT)
