@@ -89,15 +89,16 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
 
   #---- Identify blood pressure calibration signal and remove the data. ----
   # Baseline --------------------------
-  #Calculate first derivative to identify where slope are flat. 
+  
+    #Calculate first derivative to identify where slope are flat. 
     Dt = pracma::gradient(Baseline_Dataset$reBAP)
-    
+
   #make a dataframe of first derivative and timescale. 
     DtT = 1:length(Dt)
     DtDf <<- data_frame(Dt = Dt, T = DtT)
 
     # Debugging purposes.
-    #dtMAP <<- ggplot(data = DtDf, aes(x = T, y = Dt)) + 
+    dtMAP <<- ggplot(data = DtDf, aes(x = T, y = Dt)) + 
                      geom_line()
 
     #turn any data that shows a derivative less than 0.6 to 0.
