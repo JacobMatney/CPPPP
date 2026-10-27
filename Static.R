@@ -110,7 +110,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
                      geom_line()
 
     #identify which index in dt dataframe is above threshold (identify peaks). 
-    PosIndex <<- which(DtDf$Dt > (0.25 * max(DtDf$Dt))
+    PosIndex <<- which(DtDf$Dt > (0.25 * max(DtDf$Dt)))
 
     #identify the distance between each peak in the derivative.
     DiffIndex <<- diff(PosIndex, lag = 1)
