@@ -143,7 +143,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
      Baseline_Dataset$reBAP = Data3
 
 
-# Baseline --------------------------
+# Stressor --------------------------
   #Calculate first derivative to identify where slope are flat. 
     SDt = pracma::gradient(Stressor_Dataset$reBAP)
     
@@ -192,7 +192,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL) {
       }
 
       #for debugging purposes
-      #Data3vec <<- SData3
+      SData3vec <<- SData3
 
     #replace original reBAP with new corrected data. 
     Stressor_Dataset$reBAP = SData3
