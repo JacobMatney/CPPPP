@@ -406,7 +406,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL, HrB, HrS) {
     
     Stress_end_beat = length(Base_Matrix_Df$Beat) 
     
-    Stress_Matrix_Df[Stress_Matrix_Df$CrCP < 0, c("CrCP", "RAP", "MAP", "MCAv", "CPP", "CPI", "CVCi", "PETCO2")] = NA
+    #Stress_Matrix_Df[Stress_Matrix_Df$CrCP < 0, c("CrCP", "RAP", "MAP", "MCAv", "CPP", "CPI", "CVCi", "PETCO2")] = NA
     
     
     #Remove first and last detected beats (due to likely half cardiac cycles at start and end of stage)
