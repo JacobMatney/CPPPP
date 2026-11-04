@@ -3,14 +3,14 @@
 ---
 Title: "Cerebral Vasomotor Analyzer"
 Author: "Jacob Matney"
-Date: "2026-07-13"
+Date: "2026-11-04"
 ---
 
 # Introduction
 
 The estimation of cerebral critical closing pressure (CrCP) and resistance area product (RAP) has the capability to enhance our understanding of cerebrovascular hemodynamics by estimating vascular activity using a two-component model rather than the traditional single-component model of cerebrovascular conductance/resistnace indices. In doing so, researchers can *estimate* the activity of cerebral vessels at various branches of the vascular tree, as well as *estimate* metabolic and myogenic-mediated activity of the brain's vasculature in response to stress, respectively. However, the quantification of these variables requires high data quality, considerable data processing and careful calculation, of which accumulates to a high burden on researchers when compared to traditional single-component models. Because of this, progress towards utilizing stronger, more physiologically interpretable analyses of vascular activity rather than traditional, more convenient calculations has been slow.
 
-This shiny app provided here within is based on mathematical calculations set forth by [R.B Panerai](https://linkinghub.elsevier.com/retrieve/pii/S1350453303000274) and colleagues since 2003. In particular, this application calculates CrCP and RAP utilizing the 2-point mean method as described by [Panerai et al. (2011).](https://iopscience.iop.org/article/10.1088/0967-3334/32/4/007) Calculations within the subcomponent analysis of autoregulation follows those set forth by [Beishon et al. (2018)](http://doi.wiley.com/10.14814/phy2.13803). Additionally, this program calculates estimated cerebral perfusion pressure (CPP) by adjusting mean arterial pressure for the effects of the hydrostatic column (CPP = MAP - (0.7355 * probe distance (cm)), as well as calculates cerebral pulsatility index for the inputed data. 
+This shiny app provided here within is based on mathematical calculations set forth by [R.B Panerai](https://linkinghub.elsevier.com/retrieve/pii/S1350453303000274) and colleagues since 2003. In particular, this application calculates CrCP and RAP utilizing the 2-point mean method as described by [Panerai et al. (2011).](https://iopscience.iop.org/article/10.1088/0967-3334/32/4/007) Calculations within the subcomponent analysis of autoregulation follows those set forth by [Beishon et al. (2018)](http://doi.wiley.com/10.14814/phy2.13803). Additionally, this program calculates estimated cerebral perfusion pressure (CPP) by adjusting mean arterial pressure for the effects of the hydrostatic column (CPP = MAP - (0.7355 * probe distance (cm) or CPP = MAP - (0.78 * probe distance (cm)), as well as calculates cerebral pulsatility index for the inputed data. 
 
 # Setting Up R and R Studio
 
@@ -53,7 +53,7 @@ Within this repository there is a excel template entitled "CVA Template". You ca
 ![](https://github.com/JacobMatney/CVA/blob/main/IMGs/Download_Template.PNG)
 <br>
 
-To run your own data, you will need to generate and prepare your own data onto this template. Data should be exported as a raw data, where mean arterial pressure data should be placed under "reBAP", middle cerebral artery velocity data should be placed under "MCAv", End-tidal CO2 volume should be placed under "PETCO2"", and the comments that denote each R-wave is placed under "Beat_Num". Raw ECG data should be placed under the "ECG" column. As shown below, ensure that the first sample of each set of data states "1" under the "Beat_Num" section of the template. **This is crucial for allowing the application to work properly.** You do not need to place any data within the "Sample" column. Examples of filled template can be seen under the GitHub repository.
+To run your own data, you will need to generate and prepare your own data onto this template. Data should be exported as a raw data, where mean arterial pressure data should be placed under "MAP", cerebral blood flow velocity "CBFv", End-tidal CO2 volume should be placed under "PETCO2"", and the comments that denote each R-wave is placed under "Beat_Num". Raw ECG data should be placed under the "ECG" column. As shown below, ensure that the first sample of each set of data states "1" under the "Beat_Num" section of the template. **This is crucial for allowing the application to work properly.** You do not need to place any data within the "Sample" column. Examples of filled template can be seen under the GitHub repository.
 
 ![](https://github.com/JacobMatney/CVA/blob/main/IMGs/Template_Filled.PNG)
 <br>
@@ -65,9 +65,9 @@ Place baseline values within the "Cond-\_Baseline" and stimulus values within th
 
 ## Working Within the Application
 
-To begin analyzing data, select your file by clicking on the "Browse" button. Upon selection of the data, beat detection will begin automatically, please be patient. Once each R peak is identified, 2 figures will be produced under the "ECG Signal" tab of the navigation bar. These figures will show the ECG tracing for both baseline and stimulus values, as well as a corresponding red dot over each R wave. It is important for researchers to scroll through their tracings (using the scroll bar below each figure) to ensure that there is a red dot supraposed over each R wave for accurate calculations. *Note, that the red dot does NOT need to be placed at the tip of each R wave, but rather just needs to be over the proper signal.* Due to the first and last cardiac cycle being discarded prior to analysis, the first and last R peaks may not be detect. This is normal. If ECG is missing a red dot elsewhere, this could be indicitave of poor ECG signal and should be reconsidered for analysis.  
+To begin analyzing data, select your file by clicking on the "Browse" button. Upon selection of the data, ensure that the proper condition and sample frequency for the raw data is selected. Then, press "Detect" to begin beat detection. Please be patient as the application performs this process. Once each R peak is identified, 2 figures will be produced under the "ECG Signal" tab of the navigation bar. These figures will show the ECG tracing for both baseline and stimulus values, as well as a corresponding red dot over each R wave. It is important for researchers to scroll through their tracings (using the scroll bar below each figure) to ensure that there is a red dot superimposed over each R wave for accurate calculations. *Note, that the red dot does NOT need to be placed at the tip of each R wave, but rather just needs to be over the proper signal.* Due to the first and last cardiac cycle being discarded prior to analysis, the first and last R peaks may not be detect. This is normal. If ECG is missing a red dot elsewhere, this could be indicative of poor ECG signal and should be reconsidered for analysis.  
 
-Once all cardiac cycles have been identified, the application will automatically begin the analysis of your data with the default settings provided within the app. *Note: Analysis will begin with condition A; if you wish to perform condition B, select Condition B under "select condition".*
+Once all cardiac cycles have been identified, ensure that all proper height correction, correction factor (if needed), and averaging windows are set to the desired values. Once ready to analyze, click the "Analyze" button located in the "CrCP and RAP Analyzer" settings. 
 
 For the calculation of absolute cerebrovascular variables (CBFv, CrCP, RAP, CVCi, CPP, CPI, PETCO2 and MAP), select the appropriate settings using the settings under "CrCP and RAP Analyzer" located on the left of the screen. "Height correction" reflects the distance (cm) above the heart to the TCD probe. If data was collected in a supine position, this value should be 0. "Baseline Steady State" reflects the number of seconds from the end of baseline that you wish to be averaged to reflect steady state. Similarly, "Stimulus Steady State" reflects the number of seconds from the end of the stimulus stage that you wish to be averaged to reflect steady state. The mean of the data across these intervals will be populated at the top of the "Absolute Values" panel. 
 
@@ -75,7 +75,7 @@ Settings for the subcomponent analysis of autoregulation can be found under "Sub
 
 For both absolute and subcomponent values, normalized mean square error (NMSE) values will be calculated to check the fit of the models. For absolute calculations, if estimations resulted in a NMSE less than 0.1, the averaged values at the top of the screen will appear green and are trusted to be a good fit. If values are above this threshold, data will appear red and could reflect poor data quality and lack of fit. Similarily, subcomponent results will also show green with good fit (MSNE less than 1.5), and red for poor fit (MNSE great than 1.5). 
 
-Each time a setting is changed, a recalculation of the appropriate measures will occur. 
+Each time a setting is changed, you will need to reselect "analyze" on the settings *Note: you only need to identify cardiac cycle 1 time for the same dataset*. 
 
 ## Exporting Results
 
