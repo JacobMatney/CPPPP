@@ -68,6 +68,8 @@ ui = page_sidebar(
           actionButton("runit", "Detect")),
       
       card(card_header(strong("CrCP & RAP Analyzer")), 
+           checkboxInput("useCPP", label = "Use CPP for Calculations", value = TRUE),
+           
            numericInput("HtCorrect", label = "Height Correction (cm)", value = 0) |>
              tooltip("Input the distance that the probe is above the heart (cm); 0 = supine", options = list(container = "body")),
 
@@ -313,7 +315,7 @@ server = function(input, output, session) {
     req(input$file$datapath, input$Av_Interval, input$Base_Av_Interval, input$Stim_Av_Interval, input$Av_Interval_2, input$HtCorrect, input$condition, input$Fs, input$HtConst)
     
     Static_Func(input$file$datapath, input$Av_Interval, input$Base_Av_Interval, input$Stim_Av_Interval, input$Av_Interval_2, 
-                    input$HtCorrect, B2B_1()$Baseline.Data, B2B_1()$Stim.Data, input$Fs, input$HtConst, B2B_1()$Base.HRest, B2B_1()$Stim.HRest)
+                    input$HtCorrect, B2B_1()$Baseline.Data, B2B_1()$Stim.Data, input$Fs, input$HtConst, B2B_1()$Base.HRest, B2B_1()$Stim.HRest, input$useCPP)
     
     
   })
