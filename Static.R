@@ -10,7 +10,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL, HrB, HrS, u == NULL) {
       HtConst = 0.78}
 
      if (is.null(u)) {
-      u = F
+      u == F
        }
  
     
