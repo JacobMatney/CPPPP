@@ -68,13 +68,14 @@ ui = page_sidebar(
           actionButton("runit", "Detect")),
       
       card(card_header(strong("CrCP & RAP Analyzer")), 
-           checkboxInput("useCPP", label = "Use CPP for Calculations", value = TRUE),
            
            numericInput("HtCorrect", label = "Height Correction (cm)", value = 0) |>
              tooltip("Input the distance that the probe is above the heart (cm); 0 = supine", options = list(container = "body")),
 
            conditionalPanel(condition = "input.HtCorrect > 0", radioButtons("HtConst", label = tags$u("Select Constant:"), 
                         choices = list("0.7355" = 1, "0.78" = 2), selected = 1)),
+
+           conditionalPanel(condition = "input.HtCorrect > 0",  checkboxInput("useCPP", label = "Use CPP for Calculations", value = TRUE),
            
            numericInput("Base_Av_Interval", label = "Baseline Steady State (s)", value = 20) |>
              tooltip("Select the number of seconds from the end of baseline to average for steady state values"),
