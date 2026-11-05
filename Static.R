@@ -231,7 +231,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL, HrB, HrS, u) {
       Base_matrix[i, 4] = mean(PulledData$FilteredLMCAv)
       
       #Mean MAP
-      Base_matrix[i, 5] = mean(PulledData$FilteredMAP)
+      Base_matrix[i, 5] = Mean_MAP
       
       
       #CPI Calculation
@@ -391,7 +391,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL, HrB, HrS, u) {
       Stress_matrix[i, 4] = mean(PulledData3$FilteredLMCAv)
       
       #Mean MAP
-      Stress_matrix[i, 5] = mean(PulledData3$FilteredMAP)
+      Stress_matrix[i, 5] = Mean_MAP
       
         #Mean CPP
       Stress_matrix[i, 9] = mean(CPP3)
