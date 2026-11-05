@@ -306,7 +306,7 @@ server = function(input, output, session) {
     if (input$gate == 1) {
     R_Detect(input$file$datapath, input$condition, input$Fs)
     } else {
-      Vel.Gate(input$file$datapath, input$condition, input$Fs)
+      #Vel.Gate(input$file$datapath, input$condition, input$Fs)
       }
     
     
