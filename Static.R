@@ -225,7 +225,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL, HrB, HrS, u) {
       Base_matrix[i, 3] = 1/Slope
       
       #CrCP Calculation
-      Base_matrix[i, 2] = mean_MAP - (Base_matrix[i,3] * mean(PulledData$FilteredLMCAv))
+      Base_matrix[i, 2] = Mean_MAP - (Base_matrix[i,3] * mean(PulledData$FilteredLMCAv))
       
       #Mean MCAv
       Base_matrix[i, 4] = mean(PulledData$FilteredLMCAv)
@@ -385,7 +385,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL, HrB, HrS, u) {
       Stress_matrix[i, 3] = 1/Slope
       
       #CrCP
-      Stress_matrix[i, 2] = mean_MAP - (Stress_matrix[i,3] * mean(PulledData3$FilteredLMCAv))
+      Stress_matrix[i, 2] = Mean_MAP - (Stress_matrix[i,3] * mean(PulledData3$FilteredLMCAv))
       
       #Mean MCAv
       Stress_matrix[i, 4] = mean(PulledData3$FilteredLMCAv)
