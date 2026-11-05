@@ -190,7 +190,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL, HrB, HrS, u) {
 
       
       Mean_Velocity = mean(PulledData$FilteredLMCAv)
-      if (u == 1) {
+      if (u == T) {
       Mean_MAP = mean(CPP)
       } else {
         Mean_MAP = mean(PulledData$FilteredMAP)
@@ -200,7 +200,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL, HrB, HrS, u) {
       
       Sys_velocity = max(PulledData$FilteredLMCAv)
       
-      if (u == 1) {
+      if (u == T) {
       Sys_MAP = max(CPP)
       } else {
         Sys_MAP = max(PulleData$FilteredMAP)
@@ -208,7 +208,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL, HrB, HrS, u) {
       
       Diastolic_Velocity = min(PulledData$FilteredLMCAv)
       
-      if (u == 1) {
+      if (u == T) {
       Diastolic_MAP = min(CPP)
        } else {
               Diastolic_MAP = min(PulledData$FilteredMAP)
@@ -346,7 +346,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL, HrB, HrS, u) {
       
       #Calculate Mean MAP and V
       Mean_Velocity = mean(PulledData3$FilteredLMCAv)
-      if (u == 1) {
+      if (u == T) {
       Mean_MAP = mean(CPP)
       } else {
         Mean_MAP = mean(PulledData$FilteredMAP)
@@ -355,7 +355,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL, HrB, HrS, u) {
       
       #Systolic MAP and V
       Sys_velocity = max(PulledData3$FilteredLMCAv)
-      if (u == 1) {
+      if (u == T) {
       Sys_MAP = max(CPP)
       } else {
         Sys_MAP = max(PulleData$FilteredMAP)
@@ -364,7 +364,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL, HrB, HrS, u) {
       
       #Diastolic MAP and V
       Diastolic_Velocity = min(PulledData3$FilteredLMCAv)
-       if (u == 1) {
+       if (u == T) {
       Diastolic_MAP = min(CPP)
        } else {
               Diastolic_MAP = min(PulledData$FilteredMAP)
