@@ -72,7 +72,7 @@ ui = page_sidebar(
            numericInput("HtCorrect", label = "Height Correction (cm)", value = 0) |>
              tooltip("Input the distance that the probe is above the heart (cm); 0 = supine", options = list(container = "body")),
 
-           conditionalPanel(condition = "input.HtCorrect > 0", radioButtons("HtConst", label = tags$u("Select Constant:")
+           conditionalPanel(condition = "input.HtCorrect > 0", radioButtons("HtConst", label = tags$u("Select Constant:"),
                         choices = list("0.7355" = 1, "0.78" = 2), selected = 1)|>
              tooltip("select which height correction factor you wish to use", options = list(container = "body"))),
 
