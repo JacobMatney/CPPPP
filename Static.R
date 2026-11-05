@@ -1,4 +1,4 @@
-Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL, HrB, HrS) {
+Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL, HrB, HrS, u) {
   
   withProgress(message = "Calculations in progress, please wait...", {
     
@@ -190,15 +190,29 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL, HrB, HrS) {
 
       
       Mean_Velocity = mean(PulledData$FilteredLMCAv)
+      if (u == 1) {
       Mean_MAP = mean(CPP)
+      } else {
+        Mean_MAP = mean(PulledData$FilteredMAP)
+        }
+      
       Mean_PET1 = mean(PulledData$PETCO2)
       
       Sys_velocity = max(PulledData$FilteredLMCAv)
+      
+      if (u == 1) {
       Sys_MAP = max(CPP)
+      } else {
+        Sys_MAP = max(PulleData$FilteredMAP)
+        }
       
       Diastolic_Velocity = min(PulledData$FilteredLMCAv)
+      
+      if (u == 1) {
       Diastolic_MAP = min(CPP)
-     
+       } else {
+              Diastolic_MAP = min(PulledData$FilteredMAP)
+        }
       
       
       #Slope determined through 2 point mean methods. 
@@ -332,18 +346,29 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL, HrB, HrS) {
       
       #Calculate Mean MAP and V
       Mean_Velocity = mean(PulledData3$FilteredLMCAv)
-      Mean_MAP = mean(CPP3)
+      if (u == 1) {
+      Mean_MAP = mean(CPP)
+      } else {
+        Mean_MAP = mean(PulledData$FilteredMAP)
+        }
       Mean_PET2 = mean(PulledData3$PETCO2)
       
       #Systolic MAP and V
       Sys_velocity = max(PulledData3$FilteredLMCAv)
-      Sys_MAP = max(CPP3)
+      if (u == 1) {
+      Sys_MAP = max(CPP)
+      } else {
+        Sys_MAP = max(PulleData$FilteredMAP)
+        }
       
       
       #Diastolic MAP and V
       Diastolic_Velocity = min(PulledData3$FilteredLMCAv)
-      Diastolic_MAP = min(CPP3)
-      
+       if (u == 1) {
+      Diastolic_MAP = min(CPP)
+       } else {
+              Diastolic_MAP = min(PulledData$FilteredMAP)
+        }
       
       #slope determined by 2-point mean method
       Slope = (Mean_Velocity - Diastolic_Velocity) / (Mean_MAP - Diastolic_MAP)
