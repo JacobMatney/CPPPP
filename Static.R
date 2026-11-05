@@ -349,7 +349,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL, HrB, HrS, u) {
       if (u == T) {
       Mean_MAP = mean(CPP3)
       } else {
-        Mean_MAP = mean(PulledData$FilteredMAP)
+        Mean_MAP = mean(PulledData3$FilteredMAP)
         }
       Mean_PET2 = mean(PulledData3$PETCO2)
       
@@ -358,7 +358,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL, HrB, HrS, u) {
       if (u == T) {
       Sys_MAP = max(CPP3)
       } else {
-        Sys_MAP = max(PulledData$FilteredMAP)
+        Sys_MAP = max(PulledData3$FilteredMAP)
         }
       
       
@@ -367,7 +367,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL, HrB, HrS, u) {
        if (u == T) {
       Diastolic_MAP = min(CPP3)
        } else {
-              Diastolic_MAP = min(PulledData$FilteredMAP)
+              Diastolic_MAP = min(PulledData3$FilteredMAP)
         }
       
       #slope determined by 2-point mean method
