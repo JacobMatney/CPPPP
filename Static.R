@@ -1,4 +1,4 @@
-Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL, HrB, HrS, u) {
+Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL, HrB, HrS, u == NULL) {
   
   withProgress(message = "Calculations in progress, please wait...", {
     
@@ -8,6 +8,11 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL, HrB, HrS, u) {
       HtConst = 0.7355
       } else {
       HtConst = 0.78}
+
+     if (is.null(u)) {
+      u = F
+       }
+ 
     
     # -----------------------------------------------------------------------------#
     # Import Data and Fill in Beats                                                #
