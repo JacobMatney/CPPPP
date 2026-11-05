@@ -241,7 +241,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL, HrB, HrS, u) {
       Base_matrix[i, 9] = mean(CPP)
       
         #"Check" Calculation
-      Base_matrix[i, 6] = (Base_matrix[i,9] - Base_matrix[i,2]) / Base_matrix[i,3]
+      Base_matrix[i, 6] = (Base_matrix[i,5] - Base_matrix[i,2]) / Base_matrix[i,3]
       
       #CVCi Calculation
       Base_matrix[i, 10] = mean(PulledData$FilteredLMCAv) / mean(CPP)
@@ -397,7 +397,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL, HrB, HrS, u) {
       Stress_matrix[i, 9] = mean(CPP3)
       
       #Check Calculation
-      Stress_matrix[i, 6] = (Stress_matrix[i,9] - Stress_matrix[i,2]) / Stress_matrix[i,3]
+      Stress_matrix[i, 6] = (Stress_matrix[i,5] - Stress_matrix[i,2]) / Stress_matrix[i,3]
       
       #CPI Calculation
       Stress_matrix[i, 8] = (Sys_velocity - Diastolic_Velocity) / Mean_Velocity
