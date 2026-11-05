@@ -3,7 +3,6 @@ options(shiny.maxRequestSize = 500*1024^2, scipen = 999, shiny.launch.browser = 
 
 source("Static.R")
 source("R-R Detection.R")
-source("CBFv Gating.R")
 
 
 packages = c(
