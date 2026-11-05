@@ -75,7 +75,8 @@ ui = page_sidebar(
            conditionalPanel(condition = "input.HtCorrect > 0", radioButtons("HtConst", label = tags$u("Select Constant:"), 
                         choices = list("0.7355" = 1, "0.78" = 2), selected = 1)),
 
-           conditionalPanel(condition = "input.HtCorrect > 0",  checkboxInput("useCPP", label = "Use CPP for Calculations", value = TRUE)),
+           conditionalPanel(condition = "input.HtCorrect > 0",  checkboxInput("useCPP", label = "Use CPP for Calculations", value = TRUE)|>
+             tooltip("selectif you want to use CPP for CrCP and RAP Estimation", options = list(container = "body"))),
            
            numericInput("Base_Av_Interval", label = "Baseline Steady State (s)", value = 20) |>
              tooltip("Select the number of seconds from the end of baseline to average for steady state values"),
