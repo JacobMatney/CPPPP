@@ -347,7 +347,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL, HrB, HrS, u) {
       #Calculate Mean MAP and V
       Mean_Velocity = mean(PulledData3$FilteredLMCAv)
       if (u == T) {
-      Mean_MAP = mean(CPP)
+      Mean_MAP = mean(CPP3)
       } else {
         Mean_MAP = mean(PulledData$FilteredMAP)
         }
@@ -356,16 +356,16 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL, HrB, HrS, u) {
       #Systolic MAP and V
       Sys_velocity = max(PulledData3$FilteredLMCAv)
       if (u == T) {
-      Sys_MAP = max(CPP)
+      Sys_MAP = max(CPP3)
       } else {
-        Sys_MAP = max(PulleData$FilteredMAP)
+        Sys_MAP = max(PulledData$FilteredMAP)
         }
       
       
       #Diastolic MAP and V
       Diastolic_Velocity = min(PulledData3$FilteredLMCAv)
        if (u == T) {
-      Diastolic_MAP = min(CPP)
+      Diastolic_MAP = min(CPP3)
        } else {
               Diastolic_MAP = min(PulledData$FilteredMAP)
         }
