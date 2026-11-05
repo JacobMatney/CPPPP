@@ -203,7 +203,7 @@ Static_Func = function(x,y,z,a,b,d,j, m, f, e = NULL, HrB, HrS, u) {
       if (u == T) {
       Sys_MAP = max(CPP)
       } else {
-        Sys_MAP = max(PulleData$FilteredMAP)
+        Sys_MAP = max(PulledData$FilteredMAP)
         }
       
       Diastolic_Velocity = min(PulledData$FilteredLMCAv)
